@@ -1,0 +1,59 @@
+% Just ignore everything between this and the next commented line!
+
+\documentclass[12pt]{article}
+\usepackage[colorlinks,linkcolor=red]{hyperref}
+ \usepackage[margin=1in]{geometry} 
+ \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, 
+hyperref, color, graphicx,ulem}
+\usepackage{datetime}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\mm}{\textcolor{blue}{You need to use math mode whenever you are writing logic symbols, variables, sets etc. and you need to use text whenever you are writing words. If you are not sure what this means, please speak to me.}}
+\newcommand{\al}{\textcolor{blue}{You might try the align environment as shown below: 
+\begin{align*}
+y=&a+b+a\\
+=&2a+b
+\end{align*}
+The \& symbol allows you to line up the ='s or anything else you want to line up! It also saves you the space between lines of display style equation!}}
+\newcommand{\steps}{\textcolor{blue}{You need to use the claim environment to give a claim, then close that and use the proof environment to give your proof.}}
+\newcommand{\nproof}{\textcolor{blue}{I see what you are trying to say, but this is not a proof. Please see me if you do not understand what I mean by this.}}
+\newcommand{\equal}{\textcolor{blue}{You can only use ``='' between two things which are actually equal. This is not just a way of stringing things together!}}
+\newcommand{\mul}{\textcolor{blue}{This is not a valid way of denoting multiplication. You can use $\times$ or $\cdot$, or often the implied multiplication of adjacent variables.}}
+\newcommand{\ex}{\textcolor{blue}{You cannot just give one example. You are tasked with showing that this claim holds for all possible values.}}
+\newcommand{\thus}{\textcolor{blue}{``therefore'', ``thus", and other words of this flavor should be used only when the preceding sentence leads us to the following sentence. It is not just a way to string things together!}}
+\newcommand{\words}{\textcolor{blue}{You need punctuation and words. Remember a proof is supposed to walk the reader through your thought process.}}
+\newcommand{\order}{\textcolor{blue}{As a general rule, if the sentences can be reorganized and the proof doesn't make significantly less sense, then it is probably not very well structured! The arguments should flow into each other. Generally sentences should justify each other and you should feel like you are building one thought on top of another.}}
+\newcommand{\pr}{\textcolor{blue}{Proofread!}}
+\newcommand{\sen}{\textcolor{blue}{You can't start a sentence with a symbol.}}
+\newcommand\score[1]{\textcolor{blue}{\textbf{ (score: #1) }}}
+\newcommand\blue[1]{\textcolor{blue}{#1}}
+\let\div\undefined
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\im}{im}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{claim}[2][Claim]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+% You can ignore all the code written above. Most of it is so I can make common comments on your work easily and quickly.
+\usepackage[colorlinks,linkcolor=red]{hyperref}
+ 
+\begin{document}
+ 
+\title{Homework 1}
+\date{\today}
+% Add your name in above
+\maketitle
+
+% Do not make any additional changes to the title. The date will just tell me when you last compiled and you will not be penalized for a funny date.
+
+ 
+% Notice that this text is not visible when you compile? The "%" symbol comments out everything after it! This allows you to write notes to yourself that won't appear in the document. Of course, you need to take out the "%" when you want it to start showing up!
+ 
+    \input{0.tex}
+    \newpage
+
+\end{document}
