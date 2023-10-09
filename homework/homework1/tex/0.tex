@@ -7,8 +7,14 @@ Write the gradient and Heissan matrix of the following formula.
 \end{problem}
 
     %type your answer here
+    Let $f(\mathbf{x})=\mathbf{x}^{\mathrm{T}}\mathbf{Ax}+\mathbf{b}^{\mathrm{T}}\mathbf{x}+\mathrm{c}$\\
+   
+    1. the gradient of the formula is\\
+    $\nabla f=\dfrac{\partial f}{\partial\mathbf{x}}=\mathbf{(A+A^T)x}+\mathbf{b}$\\
 
-
+    2. the Heissan matrix of the formula is\\
+    $\nabla^2 f=\nabla(\nabla f)=\dfrac{\partial(\nabla f)}{\partial\mathbf{x}}=\mathbf{A+A^T}$\\
+    
 
 
 
@@ -20,12 +26,12 @@ Write the gradient and Heissan matrix of the following formula.
 \end{problem}
 
     %type your answer here
+    Let $f(\mathbf{x})=\left\|\mathbf{Ax}-\mathbf{b}\right\|^{2}_{2}=(\mathbf{Ax}-\mathbf{b})^T(\mathbf{Ax}-\mathbf{b})=\mathbf{x^TA^TAx}-\mathbf{2x^TA^Tb}+\mathbf{b^Tb}$\\
+    1. the gradient of the formula is\\
+    $\nabla f=\dfrac{\partial f}{\partial\mathbf{x}}=\mathbf{2A^TAx}-\mathbf{2A^Tb}$\\
 
-
-
-
-
-
+    2. the Heissan matrix of the formula is\\
+    $\nabla^2 f=\nabla(\nabla f)=\dfrac{\partial(\nabla f)}{\partial\mathbf{x}}=\mathbf{2A^TA}$\\
 
 \newpage    
 \begin{problem}{iii}
@@ -34,8 +40,7 @@ Convert the following problem to linear programming.
 \end{problem}
 
     %type your answer here
-
-
+    $\minimize\limits_{x\in\mathbf{R}^n}$
 
 
 
