@@ -37,9 +37,9 @@ Convert the following problem to linear programming.
 
     %type your answer here
     1. for the first part,\\
-    let $z_i = |\mathbf{c_i^Tx}-b_i|$, where $\mathbf{c_i}$ is the $i$-th row of the matrix $\mathbf{A}$, and $b_i$ is the $i$-th element in the column vector $\mathbf{b}$.\\
-    So $\left\|\mathbf{Ax}-b_i\right\|_1=\sum\limits_{i=1}^m z_i$\\
-    And $-z_i \leq \mathbf{c_i^Tx}-b_i \leq z_i$ and $z_i \geq 0$\\
+    let $z_i = |\mathbf{c_i}^T\mathbf{x}-b_i|$, where $\mathbf{c_i}$ is the $i$-th row of the matrix $\mathbf{A}$, and $b_i$ is the $i$-th element in the column vector $\mathbf{b}$.\\
+    So $\left\|\mathbf{Ax}-\mathbf{b}\right\|_1=\sum\limits_{i=1}^m z_i$\\
+    And $-z_i \leq \mathbf{c_i}^T\mathbf{x}-b_i \leq z_i$ and $z_i \geq 0$\\
 
     2. for the second part,\\
     let $w = \max\limits_{i=1,2,\cdots,n}x_i$, where $x_i$ is the $i$-th element in the vector $\mathbf{x}$\\
@@ -50,7 +50,7 @@ Convert the following problem to linear programming.
     \begin{equation*}
         \begin{aligned}
             \min_{\mathbf{x}\in\mathbf{R^{n}}}\quad & (\sum\limits_{i=1}^m z_i) + w\\
-            subject\ to \quad & -z_i \leq \mathbf{c_i^Tx}-b_i \leq z_i, \quad i=1,2,\cdots,m\\
+            subject\ to \quad & -z_i \leq \mathbf{c_i}^T\mathbf{x}-b_i \leq z_i, \quad i=1,2,\cdots,m\\
             & z_i \geq 0, \quad i=1,2,\cdots,m\\
             & w \geq x_i, \quad i=1,2,\cdots,n
         \end{aligned}
