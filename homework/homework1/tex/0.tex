@@ -14,10 +14,6 @@ Write the gradient and Heissan matrix of the following formula.
 
     2. the Heissan matrix of the formula is\\
     $\nabla^2 f=\nabla(\nabla f)=\dfrac{\partial(\nabla f)}{\partial\mathbf{x}}=\mathbf{A+A^T}$\\
-    
-
-
-
 
 \newpage
 \begin{problem}{ii}
@@ -40,10 +36,26 @@ Convert the following problem to linear programming.
 \end{problem}
 
     %type your answer here
+    1. for the first part,\\
+    let $z_i = |\mathbf{c_i^Tx}-b_i|$, where $\mathbf{c_i}$ is the $i$-th row of the matrix $\mathbf{A}$, and $b_i$ is the $i$-th element in the column vector $\mathbf{b}$.\\
+    So $\left\|\mathbf{Ax}-b_i\right\|_1=\sum\limits_{i=1}^m z_i$\\
+    And $-z_i \leq \mathbf{c_i^Tx}-b_i \leq z_i$ and $z_i \geq 0$\\
 
-    $\begin{array}{cl}\underset{x \in \mathbb{R}^n}{\operatorname{minimize}} & f(x) \\ \text { subject to } & c_i(x)=0, \quad i \in \mathcal{E} \\ & c_i(x) \leq 0, \quad i \in \mathcal{I}\end{array}$
-
+    2. for the second part,\\
+    let $w = \max\limits_{i=1,2,\cdots,n}x_i$, where $x_i$ is the $i$-th element in the vector $\mathbf{x}$\\
+    So $\left\|\mathbf{x}\right\|_\infty=w$\\
+    And $w \geq x_i$\\
     
+    So combine the two parts, we convert the problem into the linear programming:\\
+    \begin{equation*}
+        \begin{aligned}
+            \min_{\mathbf{x}\in\mathbf{R^{n}}}\quad & (\sum\limits_{i=1}^m z_i) + w\\
+            subject\ to \quad & -z_i \leq \mathbf{c_i^Tx}-b_i \leq z_i, \quad i=1,2,\cdots,m\\
+            & z_i \geq 0, \quad i=1,2,\cdots,m\\
+            & w \geq x_i, \quad i=1,2,\cdots,n
+        \end{aligned}
+    \end{equation*}
+
 
 \newpage
 \begin{problem}{vi}
@@ -52,11 +64,25 @@ Proof the convergence rates of the following point sequences.
 \end{problem}
 
     %type your answer here
+    1. for $\mathbf{x}^k = \dfrac{1}{k}$:\\
+    since $\lim\limits_{k\to\infty}\mathbf{x}^k = 0$, so $\mathbf{x}^*=0$\\
+    so $\lim\limits_{k\to\infty}\dfrac{\left\|\mathbf{x}^{k+1}-\mathbf{x}^*\right\|}{\left\|\mathbf{x}^k-\mathbf{x}^*\right\|}=\lim\limits_{k\to\infty}\dfrac{\left\|\dfrac{1}{k+1}\right\|}{\left\|\dfrac{1}{k}\right\|}=\lim\limits_{k\to\infty}\dfrac{k}{k+1}=1$\\
+    i.e. $q=1$.
+    so the point sequence is Q-sublinear convergence.\\
 
+    2. for $\mathbf{x}^k = \dfrac{1}{k!}$:\\
+    since $\lim\limits_{k\to\infty}\mathbf{x}^k = 0$, so $\mathbf{x}^*=0$\\
+    so $\lim\limits_{k\to\infty}\dfrac{\left\|\mathbf{x}^{k+1}-\mathbf{x}^*\right\|}{\left\|\mathbf{x}^k-\mathbf{x}^*\right\|}=\lim\limits_{k\to\infty}\dfrac{\left\|\dfrac{1}{(k+1)!}\right\|}{\left\|\dfrac{1}{k!}\right\|}=\lim\limits_{k\to\infty}\dfrac{k!}{(k+1)!}=\lim\limits_{k\to\infty}\dfrac{1}{k+1}=0$\\
+    i.e. $q=0$. 
+    so the point sequence is Q-superlinear convergence.\\
 
+    3. for $\mathbf{x}^k = \dfrac{1}{2^{2^k}}$:\\
+    since $\lim\limits_{k\to\infty}\mathbf{x}^k = 0$, so $\mathbf{x}^*=0$\\
+    so $\lim\limits_{k\to\infty}\dfrac{\left\|\mathbf{x}^{k+1}-\mathbf{x}^*\right\|}{\left\|\mathbf{x}^k-\mathbf{x}^*\right\|}=\lim\limits_{k\to\infty}\dfrac{\left\|\dfrac{1}{2^{2^{k+1}}}\right\|}{\left\|\dfrac{1}{2^{2^k}}\right\|}=\lim\limits_{k\to\infty}\dfrac{2^{2^k}}{2^{2^{k+1}}}=\lim\limits_{k\to\infty}{2^{-2^k}}=0$\\
+    i.e. $q=0$.
+    so the point sequence is Q-superlinear convergence.\\
 
-
-
+    So above all, the point sequence $\mathbf{x}^k = \dfrac{1}{k}$ is Q-sublinear convergence, the point sequence $\mathbf{x}^k = \dfrac{1}{k!}$ and $\mathbf{x}^k = \dfrac{1}{2^{2^k}}$ are Q-superlinear convergence.\\
 
 
 \newpage
@@ -65,3 +91,14 @@ Select the Haverly Pool Problem or the Horse Racing Problem in the courseware, c
 \textcolor{red}{[40pts]}
 \end{problem}
     
+    Select the Haverly Pooling Problem.\\
+    The codes are in the additional files.\\
+    And since the problem is a bilinear problem, i.e. a non linear problem,
+    so I used the the LOQO solver in the nonlinearly constrianed optimization to solve the problem.\\
+    The results are as follows:\\
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.7\textwidth]{../result/result.png} % 
+        \caption{The results of the Haverly Pooling Problem}
+    \end{figure}

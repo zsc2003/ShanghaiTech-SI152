@@ -1,0 +1,8 @@
+set PROJECTS := pooling project
+
+param crude_oid_quantity:=
+	A	3
+	B	1
+	C	2 ;
+
+param 

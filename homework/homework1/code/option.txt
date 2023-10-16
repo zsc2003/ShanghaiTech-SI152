@@ -1,0 +1,22 @@
+clear;
+model pooling_problem.mod;
+data pooling_problem.dat;
+solve;
+
+display income
+
+
+
+
+set PROJECTS;
+
+param crude_oid_quantity {PROJECTS};
+
+
+var 
+
+maximize profit: 
+
+9 * x + 15 * y - 6 * A - 8 * B - 10 * (C_x + C_y);
+
+subject to 
