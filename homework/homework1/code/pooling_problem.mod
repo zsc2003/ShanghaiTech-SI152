@@ -19,4 +19,4 @@ subject to content_same: p * Px + p * Py - 3 * A - B = 0;
 
 solve;
 
-display A, B, Cx, Cy, Px, Py;
+display x, y, p, A, B, Cx, Cy, Px, Py;
