@@ -122,16 +122,41 @@ Convert the following problem to a linear program in standard form. \textcolor{r
 	\end{aligned}
 \end{equation}
 
+Let $s_1,s_2,s_3$ be the slack variables for the first, second and third constraints, respectively.\\
+And $s_1,s_2,s_3\geq 0$.\\
+So the inequality constraints can be written as:\\
+\begin{equation}
+	\begin{aligned}
+		 \qquad & x_{1} + x_{2} = 5 + s_1 \\
+				& x_{1} - x_{3} = 2 - s_2 \\
+				& 4x_{2} + 3x_{3} - x_{4} = 10 - s_3 \\
+	\end{aligned}
+\end{equation}
 
+Also, the standard form should have the objective function as a minimization problem.\\
+So the objective function can be written as:\\
+\begin{equation}
+	\begin{aligned}
+		\min_{\bm{x} \in \mathbb{R}^{4}}\qquad & -(2x_{1} - x_{3} + x_{4}) \\
+		i.e.
+		\min_{\bm{x} \in \mathbb{R}^{4}}\qquad & -2x_{1} + x_{3} - x_{4} \\
+	\end{aligned}
+\end{equation}
 
+Since there are no constraints on the boundary of $x_2$, $x_3$ and $x_4$ separately.\\
+So let $x_2 = u_2 - v_2$, $x_3 = u_3 - v_3$, $x_4 = u_4 - v_4$, where $u_2,u_3,u_4,v_2,v_3,v_4\geq 0$.\\
+And put them into the origin problem, we can get the standard form of the origin problem:\\
 
-
-
-
-
-
-
-
+So the standard form of the origin problem is:\\
+\begin{equation}
+	\begin{aligned}
+		\max_{x_1,u_2,u_3,u_4,v_2,v_3,v_4,s_1,s_2,s_3}\qquad & 2x_1 - u_3 + v_3 + u_4 - v_4 \\
+		\mathrm{s.t.}\qquad & x_{1} + u_2 - v_2 - s_1 = 5 \\
+							& x_{1} - u_3 + v_3 + s_2 = 2 \\
+							& 4u_2 - 4v_2 + 3u_3 - 3v_3 - u_4 + v_4 + s_3 = 10 \\
+							& x_1,u_2,u_3,u_4,v_2,v_3,v_4,s_1,s_2,s_3 \geq 0 \\
+	\end{aligned}
+\end{equation}
 
 \newpage
 % %===============================
@@ -148,7 +173,35 @@ Use the two-phase simplex procedure to solve the following problem. \textcolor{r
 	\end{aligned}
 \end{equation}
 
+Since the origin problem is already the standard form, we can directly use the two-phase simplex procedure to solve it.\\
+1. Phase one:\\
+The supporting problem is:\\
+\begin{equation}
+	\begin{aligned}
+		\min{\bm{x} \in \mathbb{R}^{7}}\qquad & x_5 + x_6 + x_7 \\
+		\mathrm{s.t.}\qquad & x_{1} + 2x_{2} - x_{3} + x_{4} + x_5 = 0 \\
+							& 2x_{1} - 2x_{2} + 3x_{3} + 3x_{4} + x_6 = 9 \\
+							& x_{1} - x_{2} + 2x_{3} - x_{4} + x_7 = 6 \\
+							& x_{1}, x_{2}, x_{3}, x_{4}, x_5, x_6, x_7 \geq 0 \\
+	\end{aligned}
+\end{equation}
 
+And the supporting problem's simplex tableau is:\\
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			\hline
+			& 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
+			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
+			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
+			\hline
+			c^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+		\end{array}
+	\end{aligned}
+\end{equation}
+
+The basic is $B=(x_5,x_6,x_7)$, and $\mathbf{x}=(0,0,0,0,0,9,6)^T$.\\
 
 
 
