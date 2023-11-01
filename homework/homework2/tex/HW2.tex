@@ -196,18 +196,119 @@ And the supporting problem's simplex tableau is:\\
 			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
 			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
 			\hline
-			c^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+			c^T/r^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
 
 The basic is $B=(x_5,x_6,x_7)$, and $\mathbf{x}=(0,0,0,0,0,9,6)^T$.\\
+Then add the row 1,2,3 to the row 4, to let the base variables' reduced cost become $0$, we can get:\\
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			\hline
+			& \boxed{1} & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
+			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
+			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
+			\hline
+			r^T & -4 & 1 & -4 & -3 & 0 & 0 & 0 & -15 \\
+		\end{array}
+	\end{aligned}
+\end{equation}
 
+The basic is $B=(x_5,x_6,x_7)$.\\
+We choose the leftmost column with negative reduced cost, which is $x_1$.\\
+And we choose the row with the minimum ratio, which is row 1, and pivot, let $x_1$ in base and $x_5$ out base.\\
 
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			\hline
+			& 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
+			& 0 & -6 & \boxed{5} & 1 & -2 & 1 & 0 & 9 \\
+			& 0 & -3 & 3 & -2 & -1 & 0 & 1 & 6 \\
+			\hline
+			r^T & 0 & 9 & -8 & 1 & 4 & 0 & 0 & -15 \\
+		\end{array}
+	\end{aligned}
+\end{equation}
 
+The basic is $B=(x_1,x_6,x_7)$.\\
+We choose the leftmost column with negative reduced cost, which is $x_3$.\\
+And we choose the row with the minimum ratio, which is row 2, and pivot, let $x_3$ in base and $x_6$ out base.\\
 
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			\hline
+			& 1 & \frac{4}{5} & 0 & \frac{6}{5} & \frac{3}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
+			& 0 & -\frac{6}{5} & 1 & \frac{1}{5} & -\frac{2}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
+			& 0 & \boxed{\frac{3}{5}} & 0 & -\frac{13}{5} & -\frac{1}{5} & -\frac{3}{5} & 1 & \frac{3}{5} \\
+			\hline
+			r^T & 0 & -\frac{3}{5} & 0 & \frac{13}{5} & \frac{4}{5} & \frac{8}{5} & 0 & -\frac{3}{5} \\
+		\end{array}
+	\end{aligned}
+\end{equation}
 
+The basic is $B=(x_1,x_3,x_7)$.\\
+We choose the leftmost column with negative reduced cost, which is $x_2$.\\
+And we choose the row with the minimum ratio, which is row 3, and pivot, let $x_2$ in base and $x_7$ out base.\\
 
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			\hline
+			& 1 & 0 & 0 & \frac{14}{3} & \frac{1}{3} & 1 & -\frac{4}{3} & 1 \\
+			& 0 & 0 & 1 & -5 & 0 & -1 & 2 & 3 \\
+			& 0 & 1 & 0 & -\frac{13}{3} & \frac{1}{3} & -1 & \frac{5}{3} & 1 \\
+			\hline
+			r^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+		\end{array}
+	\end{aligned}
+\end{equation}
+
+The basic is $B=(x_1,x_2,x_3)$.\\
+And all the reduced cost are non-negative, so the supporting problem is feasible.\\
+So the phase one is finished.\\
+And the basic feasible solution is $\mathbf{x}=(1,1,3,0,0,0,0)^T$.\\
+
+2. Phase two:\\
+The tableau of the origin problem is:\\
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & \text{b} \\
+			\hline
+			& 1 & 0 & 0 & \frac{14}{3} & 1 \\
+			& 0 & 0 & 1 & -5 & 3 \\
+			& 0 & 1 & 0 & -\frac{13}{3} & 1 \\
+			\hline
+			c^T/r^T & -3 & 1 & 3 & -1 & 0 \\
+		\end{array}
+	\end{aligned}
+\end{equation}
+
+Then let the base variables' reduced cost become $0$, we can get:\\
+\begin{equation}
+	\begin{aligned}
+		\begin{array}{c|ccccccc|c}
+			& x_1 & x_2 & x_3 & x_4 & \text{b} \\
+			\hline
+			& 1 & 0 & 0 & \frac{14}{3} & 1 \\
+			& 0 & 0 & 1 & -5 & 3 \\
+			& 0 & 1 & 0 & -\frac{13}{3} & 1 \\
+			\hline
+			r^T & 0 & 0 & 0 & \frac{97}{3} & -7 \\
+		\end{array}
+	\end{aligned}
+\end{equation}
+
+So above all, the basic feasible solution of the origin problem is $\mathbf{x}=(1,1,3,0)^T$.\\
+And the optimal value is $7$.\\
 
 \newpage
 % %===============================
@@ -225,22 +326,28 @@ Prove that the extreme points of the following two sets are in one-to-one corres
  
 , where $\bm{A} \in \mathbb{R}^{m \times n}$, $\bm{b} \in \mathbb{R}^{m}$.
 
-~\\
-~\\
-~\\
-~\\
-~\\
-~\\
+
+Suppose that the extreme points of $S_1$ compose the set $P_1$.\\
+And the extreme points of $S_2$ compose the set $P_2$.\\
+
+$\forall\mathbf{x}\in P_1$
 
 
 
 
 
+So $P_1\subseteq P_2$.\\
+
+Similarly, $\forall(\mathbf{x},\mathbf{y})\in P_2$
 
 
 
 
 
+So $P_2\subseteq P_1$.\\
+
+Since $P_1\subseteq P_2$ and $P_2\subseteq P_1$
+So the extreme points of the sets $S_1,S_2$ are one-to-one correspondence.\\
 
 \newpage
 \subsection{Q2}
@@ -253,7 +360,11 @@ Does the set $P = \{ \bm{x} \in \mathbb{R}^{2} : 0 \leq x_{1} \leq 1 \}$ have ex
 
 
 
+So above all, $P$ has no extreme points.\\
+The standard form of $P$ is:\\
 
+
+The standard form has extreme points, and $...$ is one of the extreme points. The reasons are above.\\
 
 \end{document}
 
