@@ -330,41 +330,81 @@ Prove that the extreme points of the following two sets are in one-to-one corres
 Suppose that the extreme points of $S_1$ compose the set $P_1$.\\
 And the extreme points of $S_2$ compose the set $P_2$.\\
 
-$\forall\mathbf{x}\in P_1$
+1. $\forall\mathbf{x}\in P_1$, we can get that $\mathbf{x}\in\mathbf{R}^n,\mathbf{x}\geq 0$, and $\mathbf{Ax}\leq\mathbf{b}$,\\
+so there must $\exists \mathbf{y}\in \mathbb{R}^m$, such that $\mathbf{Ax}+\mathbf{y}=\mathbf{b}$, and $\mathbf{y}_i=(\mathbf{Ax})_i-\mathbf{b}_i$.\\
+Where $(\mathbf{Ax})_i$ be the $i$th element of the vector ($\mathbf{Ax}$), and $\mathbf{y}_i$ be the $i$th element of the vector $\mathbf{y}$, $\mathbf{b}_i$ be the $i$th element of the vector $\mathbf{b}$, $i=1,\cdots,m$.\\
+And since $\mathbf{Ax}\leq \mathbf{b}$, i.e. $(\mathbf{Ax})_i\leq\mathbf{b}_i$,\\
+so $\mathbf{y}_i=\mathbf{b}_i-(\mathbf{Ax})_i\geq 0$, $i=1,\cdots,m$.\\
+i.e. $\mathbf{y}\geq 0$.\\
+So we have proved that $(\mathbf{x},\mathbf{y})\in S_2$.\\
+
+2. And we need to prove that its also an extreme point of $S_2$.\\
+We can prove this by contradiction.\\
+Suppose that $(\mathbf{x},\mathbf{y})$ is not an extreme point of $S_2$.\\
+Then there must 
+
+TODO!!!!!
 
 
 
+Combine 1. and 2., we have proved that the mapping from $P_1$ to $P_2$ is surjective.\\
 
+3. Then we need to prove that the mapping from $P_1$ to $P_2$ is injective.
 
-So $P_1\subseteq P_2$.\\
+TODO!!!!!
 
-Similarly, $\forall(\mathbf{x},\mathbf{y})\in P_2$
-
-
-
-
-
-So $P_2\subseteq P_1$.\\
-
-Since $P_1\subseteq P_2$ and $P_2\subseteq P_1$
-So the extreme points of the sets $S_1,S_2$ are one-to-one correspondence.\\
+So above all, since the mapping from $P_1$ to $P_2$ is injective and surjective, so its bijective.\\
+i.e. We have proved that the extreme points of $S_1$ and $S_2$ are one-to-one correspondence.\\
 
 \newpage
 \subsection{Q2}
 Does the set $P = \{ \bm{x} \in \mathbb{R}^{2} : 0 \leq x_{1} \leq 1 \}$ have extreme points? What is its standard form? Does it have extreme points in its standard form? If so, give a extreme point and explain why it is a extreme point.
 \textcolor{red}{[20pts]}
 
+Since the set $P$ is the intersection of two parallel lines, so it has no extreme points.\\
 
+Since $x_2$ is not bounded, so we can let $x_2=u-v$, where $u,v\geq 0$.\\
+And since $x_1\leq 1$, so we can add slack variable $s_1$ to the inequality constraint,\\
+i.e. $x_1+s_1=1$.\\
 
+so the standard form of $P$ is:\\
+\begin{equation}
+	\begin{aligned}
+		\min_{x_1,s_1,u,v}\qquad & constant \\ 
+		\mathrm{s.t.}\qquad & x_1+s_1=1 \\
+							& x_1,s_1,u,v\geq 0 \\
+	\end{aligned}
+\end{equation}
+And its variables are $x_1,s_1,u,v$
 
-
+And the standard form has extreme points, and $(x_1,s_1,u,v)=(1,0,0,0)$ is one of the extreme points.\\
+This is because:\\
+$x_1+s_1=1, s_1=0, u=0, v=0$\\
+This makes the constraints 
+\begin{equation}
+	\begin{aligned}
+		\min_{x_1,s_1,u,v}\qquad & constant \\ 
+		\mathrm{s.t.}\qquad & x_1+s_1=1 \\
+							& s_1\geq 0 \\
+							& v\geq 0 \\
+							& u\geq 0 \\
+	\end{aligned}
+\end{equation}
+activate, and these $4$ constrains are independent.\\
+Since the number of variables of the standard form is $4$, and the number of independent activate constraints is $4$, so $(x_1,s_1,u,v)=(1,0,0,0)$ is one of the extreme points.\\ 
 
 
 So above all, $P$ has no extreme points.\\
 The standard form of $P$ is:\\
+\begin{equation}
+	\begin{aligned}
+		\min_{x_1,s_1,u,v}\qquad & constant \\ 
+		\mathrm{s.t.}\qquad & x_1+s_1=1 \\
+							& x_1,s_1,u,v\geq 0 \\
+	\end{aligned}
+\end{equation}
 
-
-The standard form has extreme points, and $...$ is one of the extreme points. The reasons are above.\\
+The standard form has extreme points, and $(x_1,s_1,u,v)=(1,0,0,0)$ is one of the extreme points. The reasons are above.\\
 
 \end{document}
 
