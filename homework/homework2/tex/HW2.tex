@@ -116,12 +116,21 @@ Convert the following problem to a linear program in standard form. \textcolor{r
 	\begin{aligned}
 		\max_{\bm{x} \in \mathbb{R}^{4}}\qquad & 2x_{1} - x_{3} + x_{4} \\
 		\mathrm{s.t.}\qquad & x_{1} + x_{2} \geq 5 \\
-							& x_{1} - x_{3} \leq 2 \\
-                                & 4x_{2} + 3x_{3} - x_{4} \leq 10 \\
-                                & x_{1} \geq 0 \\
+		& x_{1} - x_{3} \leq 2 \\
+		& 4x_{2} + 3x_{3} - x_{4} \leq 10 \\
+		& x_{1} \geq 0 \\
 	\end{aligned}
 \end{equation}
 
+The standard form should have the objective function as a minimization problem.\\
+So the objective function can be written as:\\
+\begin{equation}
+	\begin{aligned}
+		\min_{\bm{x} \in \mathbb{R}^{4}}\qquad & -(2x_{1} - x_{3} + x_{4}) \\
+		i.e.
+		\min_{\bm{x} \in \mathbb{R}^{4}}\qquad & -2x_{1} + x_{3} - x_{4} \\
+	\end{aligned}
+\end{equation}
 Let $s_1,s_2,s_3$ be the slack variables for the first, second and third constraints, respectively.\\
 And $s_1,s_2,s_3\geq 0$.\\
 So the inequality constraints can be written as:\\
@@ -133,15 +142,6 @@ So the inequality constraints can be written as:\\
 	\end{aligned}
 \end{equation}
 
-Also, the standard form should have the objective function as a minimization problem.\\
-So the objective function can be written as:\\
-\begin{equation}
-	\begin{aligned}
-		\min_{\bm{x} \in \mathbb{R}^{4}}\qquad & -(2x_{1} - x_{3} + x_{4}) \\
-		i.e.
-		\min_{\bm{x} \in \mathbb{R}^{4}}\qquad & -2x_{1} + x_{3} - x_{4} \\
-	\end{aligned}
-\end{equation}
 
 Since there are no constraints on the boundary of $x_2$, $x_3$ and $x_4$ separately.\\
 So let $x_2 = u_2 - v_2$, $x_3 = u_3 - v_3$, $x_4 = u_4 - v_4$, where $u_2,u_3,u_4,v_2,v_3,v_4\geq 0$.\\
@@ -178,7 +178,7 @@ Since the origin problem is already the standard form, we can directly use the t
 The supporting problem is:\\
 \begin{equation}
 	\begin{aligned}
-		\min{\bm{x} \in \mathbb{R}^{7}}\qquad & x_5 + x_6 + x_7 \\
+		\min_{\bm{x} \in \mathbb{R}^{7}}\qquad & x_5 + x_6 + x_7 \\
 		\mathrm{s.t.}\qquad & x_{1} + 2x_{2} - x_{3} + x_{4} + x_5 = 0 \\
 							& 2x_{1} - 2x_{2} + 3x_{3} + 3x_{4} + x_6 = 9 \\
 							& x_{1} - x_{2} + 2x_{3} - x_{4} + x_7 = 6 \\
@@ -190,13 +190,13 @@ And the supporting problem's simplex tableau is:\\
 \begin{equation}
 	\begin{aligned}
 		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{b} \\
 			\hline
 			& 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
 			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
 			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
 			\hline
-			c^T/r^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+			\mathbf{c}^T/\mathbf{r}^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -206,13 +206,13 @@ Then add the row 1,2,3 to the row 4, to let the base variables' reduced cost bec
 \begin{equation}
 	\begin{aligned}
 		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
 			& \boxed{1} & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
 			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
 			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
 			\hline
-			r^T & -4 & 1 & -4 & -3 & 0 & 0 & 0 & -15 \\
+			\mathbf{r}^T & -4 & 1 & -4 & -3 & 0 & 0 & 0 & -15 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -224,13 +224,13 @@ And we choose the row with the minimum ratio, which is row 1, and pivot, let $x_
 \begin{equation}
 	\begin{aligned}
 		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
 			& 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
 			& 0 & -6 & \boxed{5} & 1 & -2 & 1 & 0 & 9 \\
 			& 0 & -3 & 3 & -2 & -1 & 0 & 1 & 6 \\
 			\hline
-			r^T & 0 & 9 & -8 & 1 & 4 & 0 & 0 & -15 \\
+			\mathbf{r}^T & 0 & 9 & -8 & 1 & 4 & 0 & 0 & -15 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -242,13 +242,13 @@ And we choose the row with the minimum ratio, which is row 2, and pivot, let $x_
 \begin{equation}
 	\begin{aligned}
 		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
 			& 1 & \frac{4}{5} & 0 & \frac{6}{5} & \frac{3}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
 			& 0 & -\frac{6}{5} & 1 & \frac{1}{5} & -\frac{2}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
 			& 0 & \boxed{\frac{3}{5}} & 0 & -\frac{13}{5} & -\frac{1}{5} & -\frac{3}{5} & 1 & \frac{3}{5} \\
 			\hline
-			r^T & 0 & -\frac{3}{5} & 0 & \frac{13}{5} & \frac{4}{5} & \frac{8}{5} & 0 & -\frac{3}{5} \\
+			\mathbf{r}^T & 0 & -\frac{3}{5} & 0 & \frac{13}{5} & \frac{4}{5} & \frac{8}{5} & 0 & -\frac{3}{5} \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -260,13 +260,13 @@ And we choose the row with the minimum ratio, which is row 3, and pivot, let $x_
 \begin{equation}
 	\begin{aligned}
 		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \text{b} \\
+			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
 			& 1 & 0 & 0 & \frac{14}{3} & \frac{1}{3} & 1 & -\frac{4}{3} & 1 \\
 			& 0 & 0 & 1 & -5 & 0 & -1 & 2 & 3 \\
 			& 0 & 1 & 0 & -\frac{13}{3} & \frac{1}{3} & -1 & \frac{5}{3} & 1 \\
 			\hline
-			r^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+			\mathbf{r}^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -280,14 +280,14 @@ And the basic feasible solution is $\mathbf{x}=(1,1,3,0,0,0,0)^T$.\\
 The tableau of the origin problem is:\\
 \begin{equation}
 	\begin{aligned}
-		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & \text{b} \\
+		\begin{array}{c|cccc|c}
+			& x_1 & x_2 & x_3 & x_4 & \mathbf{b} \\
 			\hline
 			& 1 & 0 & 0 & \frac{14}{3} & 1 \\
 			& 0 & 0 & 1 & -5 & 3 \\
 			& 0 & 1 & 0 & -\frac{13}{3} & 1 \\
 			\hline
-			c^T/r^T & -3 & 1 & 3 & -1 & 0 \\
+			\mathbf{c}^T/\mathbf{r}^T & -3 & 1 & 3 & -1 & 0 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -295,14 +295,14 @@ The tableau of the origin problem is:\\
 Then let the base variables' reduced cost become $0$, we can get:\\
 \begin{equation}
 	\begin{aligned}
-		\begin{array}{c|ccccccc|c}
-			& x_1 & x_2 & x_3 & x_4 & \text{b} \\
+		\begin{array}{c|cccc|c}
+			& x_1 & x_2 & x_3 & x_4 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
 			& 1 & 0 & 0 & \frac{14}{3} & 1 \\
 			& 0 & 0 & 1 & -5 & 3 \\
 			& 0 & 1 & 0 & -\frac{13}{3} & 1 \\
 			\hline
-			r^T & 0 & 0 & 0 & \frac{97}{3} & -7 \\
+			\mathbf{r}^T & 0 & 0 & 0 & \frac{97}{3} & -7 \\
 		\end{array}
 	\end{aligned}
 \end{equation}
@@ -324,40 +324,40 @@ Prove that the extreme points of the following two sets are in one-to-one corres
 	\end{aligned}
 \end{equation}
  
-, where $\bm{A} \in \mathbb{R}^{m \times n}$, $\bm{b} \in \mathbb{R}^{m}$.
-
+, where $\bm{A} \in \mathbb{R}^{m \times n}$, $\bm{b} \in \mathbb{R}^{m}$.\\
 
 Suppose that the extreme points of $S_1$ compose the set $P_1$.\\
 And the extreme points of $S_2$ compose the set $P_2$.\\
-
-1. $\forall\mathbf{x}\in P_1$, we can get that $\mathbf{x}\in\mathbf{R}^n,\mathbf{x}\geq 0$, and $\mathbf{Ax}\leq\mathbf{b}$,\\
-so there must $\exists \mathbf{y}\in \mathbb{R}^m$, such that $\mathbf{Ax}+\mathbf{y}=\mathbf{b}$, and $\mathbf{y}_i=(\mathbf{Ax})_i-\mathbf{b}_i$.\\
+So we can construct the mapping from $P_1$ to $P_2$.\\
+$\forall\mathbf{x}\in P_1$, we can get that $\mathbf{x}\in\mathbb{R}^n,\mathbf{x}\geq 0$, and $\mathbf{Ax}\leq\mathbf{b}$, $\mathbf{x}$ is the extreme point of $S_1$.\\
+so there must $\exists \mathbf{y}\in \mathbb{R}^m$, such that $\mathbf{Ax}+\mathbf{y}=\mathbf{b}$, where $\mathbf{y}_i=(\mathbf{Ax})_i-\mathbf{b}_i$.\\
 Where $(\mathbf{Ax})_i$ be the $i$th element of the vector ($\mathbf{Ax}$), and $\mathbf{y}_i$ be the $i$th element of the vector $\mathbf{y}$, $\mathbf{b}_i$ be the $i$th element of the vector $\mathbf{b}$, $i=1,\cdots,m$.\\
-And since $\mathbf{Ax}\leq \mathbf{b}$, i.e. $(\mathbf{Ax})_i\leq\mathbf{b}_i$,\\
+Then we say that $(\mathbf{x},\mathbf{y})$ is the mapping result.\\
+So we have constructed the mapping from $P_1$ to $P_2$ that $\mathbf{x}\to(\mathbf{x},\mathbf{y})$.\\
+
+Then we just need to prove that the mapping is bijective.\\
+$\forall\mathbf{x}\in P_1$, we get $(\mathbf{x},\mathbf{y})$ throw the mapping.\\
+1. First, we need to prove that the mapping result is in $S_2$:\\
+Since $\mathbf{Ax}\leq \mathbf{b}$, i.e. $(\mathbf{Ax})_i\leq\mathbf{b}_i$,\\
 so $\mathbf{y}_i=\mathbf{b}_i-(\mathbf{Ax})_i\geq 0$, $i=1,\cdots,m$.\\
 i.e. $\mathbf{y}\geq 0$.\\
+So $\mathbf{x}\in\mathbb{R}^n,\mathbf{y}\in\mathbb{R}^m,\mathbf{Ax}+\mathbf{y}=\mathbf{b},\mathbf{x}\geq 0,\mathbf{y}\geq 0$.\\
 So we have proved that $(\mathbf{x},\mathbf{y})\in S_2$.\\
 
-2. And we need to prove that its also an extreme point of $S_2$.\\
+2. Then we need to prove that its also an extreme point of $S_2$, i.e. $(\mathbf{x},\mathbf{y})\in P_2$.\\
 We can prove this by contradiction.\\
 Suppose that $(\mathbf{x},\mathbf{y})$ is not an extreme point of $S_2$.\\
-Then there must $\exists\lambda\in(0,1)$, and $(\mathbf{x}_1,\mathbf{y}_1),(\mathbf{x}_2,\mathbf{y}_2)\in P_2, (\mathbf{x}_1,\mathbf{y}_1)\neq(\mathbf{x}_2,\mathbf{y}_2)$.\\
+Then there must $\exists\lambda\in(0,1)$, and $(\mathbf{x}_1,\mathbf{y}_1),(\mathbf{x}_2,\mathbf{y}_2)\in S_2, (\mathbf{x}_1,\mathbf{y}_1)\neq(\mathbf{x}_2,\mathbf{y}_2)$.\\
 i.e. $\mathbf{x}=\lambda\mathbf{x}_1+(1-\lambda)\mathbf{x}_2$.\\
-
-Since $\mathbf{y}_1=\mathbf{b}-\mathbf{Ax}_1, \mathbf{y}_2=\mathbf{b}-\mathbf{Ax}_2$,
-so $(\mathbf{x}_1,\mathbf{y}_1)\neq(\mathbf{x}_2,\mathbf{y}_2)\Rightarrow\mathbf{x}_1\neq \mathbf{x}_2$ and $\mathbf{y}_1\neq \mathbf{y}_2$.\\
-So we mutiply matrix $\mathbf{A}$ to both side of the equation $\mathbf{x}=\lambda\mathbf{x}_1+(1-\lambda)\mathbf{x}_2$.\\
-$\Rightarrow \mathbf{A}\mathbf{x}=\lambda\mathbf{A}\mathbf{x}_1+(1-\lambda)\mathbf{A}\mathbf{x}_2$.\\
-Put $\mathbf{Ax}+\mathbf{y}=\mathbf{b}, \mathbf{Ax}_1+\mathbf{y}_1=\mathbf{b}, \mathbf{Ax}_2+\mathbf{y}_2=\mathbf{b}$ into the equation, we can get that\\
-
-WRONG!!!!!!
-TODO!!!!!!!
-$\mathbf{b}-\mathbf{y}=$
-
+And since $\mathbf{x}$ is generated throw the mapping, so $\mathbf{x}\in P_1$.\\
+i.e. $\mathbf{x}$ is the extreme point in $S_1$.\\
+But since $\mathbf{x}=\lambda\mathbf{x}_1+(1-\lambda)\mathbf{x}_2$, so it is contradict with $\mathbf{x}$ is the extreme point of $S_1$.\\
+So the assumption not valid.\\
+So above all, we have proved that $(\mathbf{x},\mathbf{y})\in P_2$.\\
 
 Combine 1. and 2., we have proved that the mapping from $P_1$ to $P_2$ is surjective.\\
 
-3. Then we need to prove that the mapping from $P_1$ to $P_2$ is injective.
+3. Then we need to prove that the mapping from $P_1$ to $P_2$ is injective.\\
 If $\mathbf{x}_1=\mathbf{x}_2\in P_1$,\\
 then $\mathbf{A}\mathbf{x}_1=\mathbf{A}\mathbf{x}_2$,\\
 $\mathbf{b}-\mathbf{A}\mathbf{x}_1=\mathbf{b}-\mathbf{A}\mathbf{x}_2$,\\
@@ -366,15 +366,17 @@ So $\mathbf{y}_1=\mathbf{y}_2$.\\
 So above all, if $\mathbf{x}_1=\mathbf{x}_2$, then $(\mathbf{x}_1,\mathbf{y}_1)=(\mathbf{x}_2,\mathbf{y}_2)\in P_2$.\\
 So the mapping from $P_1$ to $P_2$ is injective.\\
 
-So above all, since the mapping from $P_1$ to $P_2$ is injective and surjective, so its bijective.\\
-i.e. We have proved that the extreme points of $S_1$ and $S_2$ are one-to-one correspondence.\\
+From 1., 2., we have get that the mapping is surjective, and from 3., we get that the mapping is injective.\\
+So the mapping is bijective.\\
+
+So above all, the mapping is bijective. i.e. We have proved that the extreme points of $S_1$ and $S_2$ are one-to-one correspondence.\\
 
 \newpage
 \subsection{Q2}
 Does the set $P = \{ \bm{x} \in \mathbb{R}^{2} : 0 \leq x_{1} \leq 1 \}$ have extreme points? What is its standard form? Does it have extreme points in its standard form? If so, give a extreme point and explain why it is a extreme point.
 \textcolor{red}{[20pts]}
 
-Since the set $P$ is the intersection of two parallel lines, so it has no extreme points.\\
+Since the set $P$ is the polyhefron consists of two parallel lines, so it has no extreme points.\\
 
 Since $x_2$ is not bounded, so we can let $x_2=u-v$, where $u,v\geq 0$.\\
 And since $x_1\leq 1$, so we can add slack variable $s_1$ to the inequality constraint,\\
@@ -396,11 +398,10 @@ $x_1+s_1=1, s_1=0, u=0, v=0$\\
 This makes the constraints 
 \begin{equation}
 	\begin{aligned}
-		\min_{x_1,s_1,u,v}\qquad & constant \\ 
-		\mathrm{s.t.}\qquad & x_1+s_1=1 \\
-							& s_1\geq 0 \\
-							& v\geq 0 \\
-							& u\geq 0 \\
+		\qquad & x_1+s_1=1 \\
+			   & s_1\geq 0 \\
+			   & v\geq 0 \\
+			   & u\geq 0 \\
 	\end{aligned}
 \end{equation}
 activate, and these $4$ constrains are independent.\\
