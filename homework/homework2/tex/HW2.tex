@@ -341,17 +341,30 @@ So we have proved that $(\mathbf{x},\mathbf{y})\in S_2$.\\
 2. And we need to prove that its also an extreme point of $S_2$.\\
 We can prove this by contradiction.\\
 Suppose that $(\mathbf{x},\mathbf{y})$ is not an extreme point of $S_2$.\\
-Then there must 
+Then there must $\exists\lambda\in(0,1)$, and $(\mathbf{x}_1,\mathbf{y}_1),(\mathbf{x}_2,\mathbf{y}_2)\in P_2, (\mathbf{x}_1,\mathbf{y}_1)\neq(\mathbf{x}_2,\mathbf{y}_2)$.\\
+i.e. $\mathbf{x}=\lambda\mathbf{x}_1+(1-\lambda)\mathbf{x}_2$.\\
 
-TODO!!!!!
+Since $\mathbf{y}_1=\mathbf{b}-\mathbf{Ax}_1, \mathbf{y}_2=\mathbf{b}-\mathbf{Ax}_2$,
+so $(\mathbf{x}_1,\mathbf{y}_1)\neq(\mathbf{x}_2,\mathbf{y}_2)\Rightarrow\mathbf{x}_1\neq \mathbf{x}_2$ and $\mathbf{y}_1\neq \mathbf{y}_2$.\\
+So we mutiply matrix $\mathbf{A}$ to both side of the equation $\mathbf{x}=\lambda\mathbf{x}_1+(1-\lambda)\mathbf{x}_2$.\\
+$\Rightarrow \mathbf{A}\mathbf{x}=\lambda\mathbf{A}\mathbf{x}_1+(1-\lambda)\mathbf{A}\mathbf{x}_2$.\\
+Put $\mathbf{Ax}+\mathbf{y}=\mathbf{b}, \mathbf{Ax}_1+\mathbf{y}_1=\mathbf{b}, \mathbf{Ax}_2+\mathbf{y}_2=\mathbf{b}$ into the equation, we can get that\\
 
+WRONG!!!!!!
+TODO!!!!!!!
+$\mathbf{b}-\mathbf{y}=$
 
 
 Combine 1. and 2., we have proved that the mapping from $P_1$ to $P_2$ is surjective.\\
 
 3. Then we need to prove that the mapping from $P_1$ to $P_2$ is injective.
-
-TODO!!!!!
+If $\mathbf{x}_1=\mathbf{x}_2\in P_1$,\\
+then $\mathbf{A}\mathbf{x}_1=\mathbf{A}\mathbf{x}_2$,\\
+$\mathbf{b}-\mathbf{A}\mathbf{x}_1=\mathbf{b}-\mathbf{A}\mathbf{x}_2$,\\
+Since $\mathbf{y}_1=\mathbf{b}-\mathbf{A}\mathbf{x}_1,\mathbf{y}_2=\mathbf{b}-\mathbf{A}\mathbf{x}_2$\\
+So $\mathbf{y}_1=\mathbf{y}_2$.\\
+So above all, if $\mathbf{x}_1=\mathbf{x}_2$, then $(\mathbf{x}_1,\mathbf{y}_1)=(\mathbf{x}_2,\mathbf{y}_2)\in P_2$.\\
+So the mapping from $P_1$ to $P_2$ is injective.\\
 
 So above all, since the mapping from $P_1$ to $P_2$ is injective and surjective, so its bijective.\\
 i.e. We have proved that the extreme points of $S_1$ and $S_2$ are one-to-one correspondence.\\
