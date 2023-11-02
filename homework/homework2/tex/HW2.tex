@@ -150,7 +150,7 @@ And put them into the origin problem, we can get the standard form of the origin
 So the standard form of the origin problem is:\\
 \begin{equation}
 	\begin{aligned}
-		\max_{x_1,u_2,u_3,u_4,v_2,v_3,v_4,s_1,s_2,s_3}\qquad & 2x_1 - u_3 + v_3 + u_4 - v_4 \\
+		\min_{x_1,u_2,u_3,u_4,v_2,v_3,v_4,s_1,s_2,s_3}\qquad & -2x_1 + u_3 - v_3 - u_4 + v_4 \\
 		\mathrm{s.t.}\qquad & x_{1} + u_2 - v_2 - s_1 = 5 \\
 							& x_{1} - u_3 + v_3 + s_2 = 2 \\
 							& 4u_2 - 4v_2 + 3u_3 - 3v_3 - u_4 + v_4 + s_3 = 10 \\
@@ -192,9 +192,9 @@ And the supporting problem's simplex tableau is:\\
 		\begin{array}{c|ccccccc|c}
 			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{b} \\
 			\hline
-			& 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
-			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
-			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
+			x_5 & 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
+			x_6 & 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
+			x_7 & 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
 			\hline
 			\mathbf{c}^T/\mathbf{r}^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
 		\end{array}
@@ -208,9 +208,9 @@ Then add the row 1,2,3 to the row 4, to let the base variables' reduced cost bec
 		\begin{array}{c|ccccccc|c}
 			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
-			& \boxed{1} & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
-			& 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
-			& 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
+			x_5 & \boxed{1} & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
+			x_6 & 2 & -2 & 3 & 3 & 0 & 1 & 0 & 9 \\
+			x_7 & 1 & -1 & 2 & -1 & 0 & 0 & 1 & 6 \\
 			\hline
 			\mathbf{r}^T & -4 & 1 & -4 & -3 & 0 & 0 & 0 & -15 \\
 		\end{array}
@@ -226,9 +226,9 @@ And we choose the row with the minimum ratio, which is row 1, and pivot, let $x_
 		\begin{array}{c|ccccccc|c}
 			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
-			& 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
-			& 0 & -6 & \boxed{5} & 1 & -2 & 1 & 0 & 9 \\
-			& 0 & -3 & 3 & -2 & -1 & 0 & 1 & 6 \\
+			x_1 & 1 & 2 & -1 & 1 & 1 & 0 & 0 & 0 \\
+			x_6 & 0 & -6 & \boxed{5} & 1 & -2 & 1 & 0 & 9 \\
+			x_7 & 0 & -3 & 3 & -2 & -1 & 0 & 1 & 6 \\
 			\hline
 			\mathbf{r}^T & 0 & 9 & -8 & 1 & 4 & 0 & 0 & -15 \\
 		\end{array}
@@ -244,9 +244,9 @@ And we choose the row with the minimum ratio, which is row 2, and pivot, let $x_
 		\begin{array}{c|ccccccc|c}
 			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
-			& 1 & \frac{4}{5} & 0 & \frac{6}{5} & \frac{3}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
-			& 0 & -\frac{6}{5} & 1 & \frac{1}{5} & -\frac{2}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
-			& 0 & \boxed{\frac{3}{5}} & 0 & -\frac{13}{5} & -\frac{1}{5} & -\frac{3}{5} & 1 & \frac{3}{5} \\
+			x_1 & 1 & \frac{4}{5} & 0 & \frac{6}{5} & \frac{3}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
+			x_3 & 0 & -\frac{6}{5} & 1 & \frac{1}{5} & -\frac{2}{5} & \frac{1}{5} & 0 & \frac{9}{5} \\
+			x_7 & 0 & \boxed{\frac{3}{5}} & 0 & -\frac{13}{5} & -\frac{1}{5} & -\frac{3}{5} & 1 & \frac{3}{5} \\
 			\hline
 			\mathbf{r}^T & 0 & -\frac{3}{5} & 0 & \frac{13}{5} & \frac{4}{5} & \frac{8}{5} & 0 & -\frac{3}{5} \\
 		\end{array}
@@ -262,9 +262,9 @@ And we choose the row with the minimum ratio, which is row 3, and pivot, let $x_
 		\begin{array}{c|ccccccc|c}
 			& x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & x_7 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
-			& 1 & 0 & 0 & \frac{14}{3} & \frac{1}{3} & 1 & -\frac{4}{3} & 1 \\
-			& 0 & 0 & 1 & -5 & 0 & -1 & 2 & 3 \\
-			& 0 & 1 & 0 & -\frac{13}{3} & \frac{1}{3} & -1 & \frac{5}{3} & 1 \\
+			x_1 & 1 & 0 & 0 & \frac{14}{3} & \frac{1}{3} & 1 & -\frac{4}{3} & 1 \\
+			x_3 & 0 & 0 & 1 & -5 & 0 & -1 & 2 & 3 \\
+			x_2 & 0 & 1 & 0 & -\frac{13}{3} & \frac{1}{3} & -1 & \frac{5}{3} & 1 \\
 			\hline
 			\mathbf{r}^T & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
 		\end{array}
@@ -283,9 +283,9 @@ The tableau of the origin problem is:\\
 		\begin{array}{c|cccc|c}
 			& x_1 & x_2 & x_3 & x_4 & \mathbf{b} \\
 			\hline
-			& 1 & 0 & 0 & \frac{14}{3} & 1 \\
-			& 0 & 0 & 1 & -5 & 3 \\
-			& 0 & 1 & 0 & -\frac{13}{3} & 1 \\
+			x_1 & 1 & 0 & 0 & \frac{14}{3} & 1 \\
+			x_3 & 0 & 0 & 1 & -5 & 3 \\
+			x_2 & 0 & 1 & 0 & -\frac{13}{3} & 1 \\
 			\hline
 			\mathbf{c}^T/\mathbf{r}^T & -3 & 1 & 3 & -1 & 0 \\
 		\end{array}
@@ -298,9 +298,9 @@ Then let the base variables' reduced cost become $0$, we can get:\\
 		\begin{array}{c|cccc|c}
 			& x_1 & x_2 & x_3 & x_4 & \mathbf{B}^{-1}\mathbf{b} \\
 			\hline
-			& 1 & 0 & 0 & \frac{14}{3} & 1 \\
-			& 0 & 0 & 1 & -5 & 3 \\
-			& 0 & 1 & 0 & -\frac{13}{3} & 1 \\
+			x_1 & 1 & 0 & 0 & \frac{14}{3} & 1 \\
+			x_3 & 0 & 0 & 1 & -5 & 3 \\
+			x_2 & 0 & 1 & 0 & -\frac{13}{3} & 1 \\
 			\hline
 			\mathbf{r}^T & 0 & 0 & 0 & \frac{97}{3} & -7 \\
 		\end{array}
