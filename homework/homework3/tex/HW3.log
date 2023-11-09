@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  9 NOV 2023 17:10
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  9 NOV 2023 21:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -755,7 +755,12 @@ LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 
 [1
 
-] [2] [3]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
+
+ []
+
+[2] [3]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
