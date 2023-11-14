@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  9 NOV 2023 21:40
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  15 NOV 2023 00:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -756,16 +756,36 @@ LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
 [2] [3]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 148.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 148.
- [4] [5] (./HW3.aux)
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 151.
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+[5] (./HW3.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -773,10 +793,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  19086 strings out of 476179
  385764 string characters out of 5813072
- 710095 words of memory out of 5000000
+ 716095 words of memory out of 5000000
  39520 multiletter control sequences out of 15000+600000
  484110 words of font info for 100 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 89i,6n,97p,389b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,9n,97p,389b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on HW3.pdf (5 pages).

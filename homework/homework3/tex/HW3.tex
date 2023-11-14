@@ -120,6 +120,9 @@
 
 
 
+
+
+
 So above all, the dual of the dual of a linear programming (standard form) is itself.\\
 
 \newpage
@@ -162,10 +165,30 @@ So above all, the dual of the dual of a linear programming (standard form) is it
 \begin{problem}{4}
     Construct a linear programming problem for which both the primal and the dual problem has no feasible solution.\textcolor{red}{[25pts]}
 
+Construct a linear programming problem that is:\\
+\begin{equation}
+\begin{aligned}
+\min_{x_1,x_2} \quad & x_1-2x_2 \\
+\text { s.t. } \quad & x_1 - x_2 \leq 1 \\
+& x_1 - x_2 \geq 2 \\
+& x_1,x_2 \leq 0
+\end{aligned}
+\end{equation}
 
+Since it is impossible to satisfy $x_1 - x_2 \leq 1$ and $x_1 - x_2 \geq 2$ at the same time, so the primal problem has no feasible solution.\\
+And the dual problem is that:\\
+\begin{equation}
+\begin{aligned}
+\max_{\lambda_1,\lambda_2} \quad & \lambda_1 + 2\lambda_2 \\
+\text { s.t. } \quad & \lambda_1 + \lambda_2 \leq 1 \\
+& -\lambda_1 - \lambda_2 \leq -2 \\
+& \lambda_1\leq 0,\lambda_2 \geq 0
+\end{aligned}
+\end{equation}
+The second constrain $-\lambda_1 - \lambda_2 \leq -2$ can be written as $\lambda_1 + \lambda_2 \geq 2$.\\
+Since it is impossible to satisfy $\lambda_1 + \lambda_2 \leq 1$ and $\lambda_1 + \lambda_2 \geq 2$ at the same time, so the dual problem has no feasible solution.\\
 
-
-
+So above all, the above construction's primal and dual problem has no feasible solution.\\
 
 \end{problem}
 
