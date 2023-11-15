@@ -116,12 +116,42 @@
     Prove the dual of the dual of a linear programming (standard form) is itself.\textcolor{red}{[25pts]}
 \end{problem}
 
+Consider a linear programming that is in standard form:\\
+\begin{equation}
+\begin{aligned}
+\min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
+\text { s.t. } \quad & A\bm{x} = \bm{b} \\
+& \bm{x} \geq 0
+\end{aligned}
+\end{equation}
 
+The Lagrangian of the above linear programming is:\\
+\begin{equation}
+L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})
+\end{equation}
 
+The dual problem is that:\\
+\begin{equation}
+\begin{aligned}
+\max_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{b} \\
+\text { s.t. } \quad & A^T\bm{\lambda} \leq \bm{c} \\
+& \bm{\lambda} \geq 0
+\end{aligned}
+\end{equation}
 
+The Lagrangian of the dual problem is:\\
+\begin{equation}
+L(\bm{\lambda},\bm{x}) = \bm{\lambda}^T\bm{b} + \bm{x}^T(A^T\bm{\lambda} - \bm{c})
+\end{equation}
 
-
-
+The dual of the dual problem is that:\\
+\begin{equation}
+\begin{aligned}
+\min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
+\text { s.t. } \quad & A\bm{x} = \bm{b} \\
+& \bm{x} \geq 0
+\end{aligned}
+\end{equation}
 
 So above all, the dual of the dual of a linear programming (standard form) is itself.\\
 
