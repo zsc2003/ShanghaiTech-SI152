@@ -115,44 +115,103 @@
 \begin{problem}{1}
     Prove the dual of the dual of a linear programming (standard form) is itself.\textcolor{red}{[25pts]}
 \end{problem}
-
+We can prove this with the help of the Duality Scheme.\\
 Consider a linear programming that is in standard form:\\
 \begin{equation}
 \begin{aligned}
 \min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
 \text { s.t. } \quad & A\bm{x} = \bm{b} \\
-& \bm{x} \geq 0
+& \bm{x} \geq \bm{0}
 \end{aligned}
 \end{equation}
 
-The Lagrangian of the above linear programming is:\\
-\begin{equation}
-L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})
-\end{equation}
+The Lagrangian of the above linear programming is $L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} - \bm{\lambda}^T(A\bm{x} - \bm{b})$.\\
 
-The dual problem is that:\\
+Since for the primal question, the variables are $\bm{x}\geq 0$, so for $x_i\geq 0$, the dual constrain is that:\\
+$$a_i^T\bm{\lambda} \leq c_i$$
+where $a_i$ is the $i$-th column of $A$.\\
+
+So for the dual problem, the constrains are $A^T\bm{\lambda} \leq \bm{c}$.\\
+
+And since for the primal question, the constrain it that $A\bm{x} = \bm{b}$, i.e.$\sum\limits_{j=1}^na_{ij}x_j=b_i$.\\
+So for the dual question, the variables $\bm{\lambda}$ is free.\\
+
+So the dual problem is that:\\
 \begin{equation}
 \begin{aligned}
 \max_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{b} \\
 \text { s.t. } \quad & A^T\bm{\lambda} \leq \bm{c} \\
-& \bm{\lambda} \geq 0
+& \bm{\lambda} \text{ is free}
+\end{aligned}
+\end{equation}
+
+To easily get the dual of the dual problem, we can first convert the objective function of the dual problem to a minimization problem. And take $M=A^T$,
+the dual problem becomes:
+\begin{equation}
+\begin{aligned}
+\min_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{(-b)} \\
+\text { s.t. } \quad & M\bm{\lambda} \leq \bm{c} \\
+& \bm{\lambda} \text{ is free}
 \end{aligned}
 \end{equation}
 
 The Lagrangian of the dual problem is:\\
+$$L(\bm{\lambda},\bm{y}) = \bm{\lambda}^T\bm{(-b)} - \bm{y}^T(M\bm{\lambda} - \bm{c})$$
+
+
+Since for the dual question, the variables are $\bm{\lambda}\text{ is free}$, so for $\lambda_i\text{ is free}$, the dual of the dual constrain is that:\\
+$$m_i^T\bm{\lambda} = (-\bm{b})_i = -b_i$$
+where $m_i$ is the $i$-th column of $M$.\\
+
+So for the dual problem, the constrains are
+$$M^T\bm{y} = \bm{-b}$$
+
+And since for the dual question, the constrain it that $M\bm{\lambda} \leq \bm{c}$, i.e.$\sum\limits_{j=1}^nm_{ij}\lambda_j\leq c_i$.\\
+so for the dual question, the variables are $\bm{y}\leq\bm{0}$.
+
+So the dual of the dual problem is that:\\
 \begin{equation}
-L(\bm{\lambda},\bm{x}) = \bm{\lambda}^T\bm{b} + \bm{x}^T(A^T\bm{\lambda} - \bm{c})
+\begin{aligned}
+\max_{\bm{y}} \quad & \bm{c}^T\bm{y} \\
+\text { s.t. } \quad & M^T\bm{y} = \bm{-b} \\
+& \bm{y} \leq \bm{0}
+\end{aligned}
 \end{equation}
 
-The dual of the dual problem is that:\\
+We can take $\bm{x}=-\bm{y}$. And since $M=A^T$, so $M^T=(A^T)^T=A$.
+
+Consider the objective function is 
+$$\max\limits_{\bm{y}} \quad \bm{c}^T\bm{y}$$
+We can convert it into a minimization problem by taking $-\bm{y}$ as the variable.\\
+i.e.
+$$\min\limits_{\bm{y}} \quad \bm{c}^T\bm{(-y)}$$
+And since we have $\bm{x}=-\bm{y}$, so we can convert the above minimization problem into:
+$$\min\limits_{\bm{x}} \quad \bm{c}^T\bm{x}$$
+
+And for the first constrain, we have:
+$$M^T\bm{y} = \bm{-b}$$
+Since $M^T=A$, and move the "-" from the right to the left, we have:
+$$A\bm{(-y)} = \bm{b}$$
+i.e.
+$$A\bm{x} = \bm{b}$$
+
+For the second constrain, we have:
+$$\bm{y}\leq\bm{0}$$
+We can convert it into:
+$$\bm{-y}\geq\bm{0}$$
+i.e.
+$$\bm{x}\geq\bm{0}$$
+
+So with the convertions above, we can get that the dual of the dual problem is that:
 \begin{equation}
 \begin{aligned}
 \min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
 \text { s.t. } \quad & A\bm{x} = \bm{b} \\
-& \bm{x} \geq 0
+& \bm{x} \geq \bm{0}
 \end{aligned}
 \end{equation}
 
+Which is exactly same with the primal problem.\\
 So above all, the dual of the dual of a linear programming (standard form) is itself.\\
 
 \newpage
@@ -163,15 +222,32 @@ So above all, the dual of the dual of a linear programming (standard form) is it
     Prove the dual objective increases after a pivot of the dual simplex method.\textcolor{red}{[25pts]}
 \end{problem}
 
+Consider the dual simplex method.\\
+Suppose that the current state is feasible, and after the pivot, it is also feasible.\\
+Then for the pivot process, we have:\\
+$r^T\geq 0$ always satisfies, this is to make sure the dual problem is feasible.\\
+As for choosing the pivot element, we choose the $p$-th row s.t. the current $b_p$ in the tableau is nagetive.\\
+i.e. $b_p<0$.\\
+Suppose that the $p$-th row is $y_{p1},y_{p2},\cdots,y_{pn},b_p$, and we choose the pivot element $a_{pq}$.\\
+s.t. $\hat{\epsilon}=\dfrac{r_q}{-y_{pq}} = \min\{\dfrac{r_i}{-y_{pi}}\mid a_{pi}<0,i=1,\cdots,n\}$.\\
+Then we pivot with $y_{pq}$, and we need to update the tableau to make the $r_q$ become $0$ by:\\
+Let the last line of the simplex tableau adds $\hat{\epsilon}$ times the $p$-th row.\\
+So we have
+$$r_q'=r_q+\hat{\epsilon}y_{pq}=r_q+\dfrac{r_q}{-y_{pq}}y_{pq}=0$$
+$$-f'=-f+\hat{\epsilon}b_p=-f+\dfrac{r_q}{-y_{pq}}b_p$$
 
 
 
 
-
-
-
-
-
+We know that the lower-right corner if $-f$, where $f$ is the dual objective value of the dual problem.\\
+So after the pivot, the lower-right corner becomes:\\
+$$-f'= -f - \frac{r_q}{y_{pq}}b_p$$
+Since $r_q>0,y_{pq}<0,b_p<0$, so $\frac{r_q}{y_{pq}}b_p>0$
+So
+$$-f= -f - \frac{r_q}{y_{pq}}b_p < -f'$$
+i.e.
+$$f'>f$$
+So above all, the dual objective increases after a pivot of the dual simplex method.\\
 
 \newpage
 
@@ -181,8 +257,31 @@ So above all, the dual of the dual of a linear programming (standard form) is it
     Let $L(\bm{x}, \bm{\lambda})$ be the Lagrangian of a linear programming problem, and $(\bm{x}^*, \bm{\lambda}^*)$ be the optimal primal-dual solution. Prove that $$L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}),$$ for any primal feasible $\bm{x}$ and dual feasible $\bm{\lambda}$.\textcolor{red}{[25pts]}
 \end{problem}
 
+Suppose that the primal problem is that:
+\begin{equation}
+\begin{aligned}
+\min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
+\text { s.t. } \quad & A\bm{x} = \bm{b} \\
+& \bm{x} \geq 0
+\end{aligned}
+\end{equation}
 
+And the dual problem is that:
+\begin{equation}
+\begin{aligned}
+\max_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{b} \\
+\text { s.t. } \quad & A^T\bm{\lambda} \leq \bm{c} \\
+& \bm{\lambda} \geq 0
+\end{aligned}
+\end{equation}
 
+And the Lagrangian of the primal problem is that:
+$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} - \bm{\lambda}^T(A\bm{x} - \bm{b})$$
+
+Since $(\bm{x}^*, \bm{\lambda}^*)$ is the optimal primal-dual solution, so we have:\\
+We can 
+So $c^T\bm{x}^*\leq c^T\bm{x}$
+% So $L(\bm{x}^*,\bm{\lambda}^*)=
 
 
 
