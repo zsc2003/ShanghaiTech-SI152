@@ -236,9 +236,6 @@ So we have
 $$r_q'=r_q+\hat{\epsilon}y_{pq}=r_q+\dfrac{r_q}{-y_{pq}}y_{pq}=0$$
 $$-f'=-f+\hat{\epsilon}b_p=-f+\dfrac{r_q}{-y_{pq}}b_p$$
 
-
-
-
 We know that the lower-right corner if $-f$, where $f$ is the dual objective value of the dual problem.\\
 So after the pivot, the lower-right corner becomes:\\
 $$-f'= -f - \frac{r_q}{y_{pq}}b_p$$
@@ -271,21 +268,22 @@ And the dual problem is that:
 \begin{aligned}
 \max_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{b} \\
 \text { s.t. } \quad & A^T\bm{\lambda} \leq \bm{c} \\
-& \bm{\lambda} \geq 0
 \end{aligned}
 \end{equation}
 
 And the Lagrangian of the primal problem is that:
-$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} - \bm{\lambda}^T(A\bm{x} - \bm{b})$$
+$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})$$
 
-Since $(\bm{x}^*, \bm{\lambda}^*)$ is the optimal primal-dual solution, so we have:\\
-We can 
-So $c^T\bm{x}^*\leq c^T\bm{x}$
-% So $L(\bm{x}^*,\bm{\lambda}^*)=
+Since we can considering the primal feasible $\bm{x}$ and dual feasible $\bm{\lambda}$, so we have:
+$$A\bm{x} = \bm{b}$$
+$$\bm{c}^T\bm{x} \geq \bm{c}^T\bm{x}^*$$
+If we put $A\bm{x} - \bm{b} = \bm{0}$ into the Lagrangian, we have:
+$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b}) = \bm{c}^T\bm{x} + \bm{\lambda}^T\bm{0} = \bm{c}^T\bm{x}$$
+And since $\bm{c}^T\bm{x} \geq \bm{c}^T\bm{x}^*$, and $L(\bm{x},\bm{\lambda})$ do not contain $\bm{\lambda}$, so we have:
+$$L(\bm{x},\bm{\lambda}) \geq L(\bm{x}^*,\bm{\lambda}) = L(\bm{x}^*,\bm{\lambda})$$
 
-
-
-
+So above all, we have prove that 
+$$L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda})$$
 
 \newpage
 
