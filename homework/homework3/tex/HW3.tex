@@ -264,20 +264,20 @@ Suppose that the primal problem is that
 \begin{equation}
 \begin{aligned}
 \min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
-\text { s.t. } \quad & A\bm{x} \geq \bm{b} \\
+\text { s.t. } \quad & A\bm{x} \leq \bm{b} \\
 \end{aligned}
 \end{equation}
 
 Then the Lagrangian of the primal problem is that:
-$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})$$
+$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})=-\bm{\lambda}^T\bm{b}+(\bm{c}^T+\bm{\lambda}^TA)\bm{x},\bm{\lambda}\geq 0$$
 And the primal objective function is
 $$f(\bm{x}) = \max\limits_{\bm{\lambda}} L(\bm{x},\bm{\lambda})$$
-Since we want to avoid $f(\bm{x})=+\infty$, so we need to constrain that $\bm{\lambda}\geq \bm{0}$.\\
+Since we want to avoid $f(\bm{x})=+\infty$, so we need to constrain that $\bm{c}^T+\bm{\lambda}^TA=0,\bm{\lambda}\geq\bm{0}$.\\
 So the dual problem is that:
 \begin{equation}
 \begin{aligned}
-\max_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{b} \\
-\text { s.t. } \quad & A^T\bm{\lambda} = \bm{c} \\
+\max_{\bm{\lambda}} \quad & -\bm{\lambda}^T\bm{b} \\
+\text { s.t. } \quad & A^T\bm{\lambda} = -\bm{c} \\
 & \bm{\lambda} \geq \bm{0}
 \end{aligned}
 \end{equation}
@@ -285,50 +285,34 @@ So the dual problem is that:
 Then we can prove the inequalities.\\
 1. Prove that $L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*)$.\\
 Since $(\bm{x}^*, \bm{\lambda}^*)$ is the optimal primal-dual solution, so we have:\\
-According to the strong duality theorem, we have:
-$$\bm{c}^T\bm{x}^* = \bm{\lambda}^{*T}\bm{b}$$
+According to the strong duality theorem, since the objective value of the dual problem is $-\bm{\lambda}^{*T}\bm{b}$, so we have:
+$$\bm{c}^T\bm{x}^* = -\bm{\lambda}^{*T}\bm{b}$$
 So
-$$L(\bm{x}, \bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}(A\bm{x} - \bm{b})=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{c}^{T}\bm{x}^*$$
-And since $\bm{\lambda}^*$ is feasible for the dual problem, so $A^T\bm{\lambda}^* = \bm{c}$, i.e. $\bm{\lambda}^{*T}A = \bm{c}^T$.\\
+$$L(\bm{x}, \bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}(A\bm{x} - \bm{b})=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} + \bm{c}^{T}\bm{x}^*$$
+And since $\bm{\lambda}^*$ is feasible for the dual problem, so $A^T\bm{\lambda}^* = -\bm{c}$, i.e. $\bm{\lambda}^{*T}A = -\bm{c}^T$.\\
 So
-$$L(\bm{x},\bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{c}^{T}\bm{x}^*=\bm{c}^T\bm{x} + \bm{c}^T\bm{x} - \bm{c}^T\bm{x}^* $$
+$$L(\bm{x},\bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{c}^{T}\bm{x}^*=\bm{c}^T\bm{x} - \bm{c}^T\bm{x} + \bm{c}^T\bm{x}^* =\bm{c}^T\bm{x}^* $$
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Since the objective value of the primal problem is $\bm{c}^T\bm{x}$, so $\bm{c}^T\bm{x}\geq\bm{c}^T\bm{x}^*$\\
+As for $L(\bm{x}^*,\bm{\lambda}^*)$, since we also have $\bm{c}^T\bm{x}^* = -\bm{\lambda}^{*T}\bm{b}$ because of the strong duality theorem.\\
 So
-$$L(\bm{x},\bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{c}^T\bm{x} - \bm{c}^T\bm{x}^*\geq \bm{c}^T\bm{x}$$
-
-As for $L(\bm{x}^*,\bm{\lambda}^*)$, since we also have $\bm{c}^T\bm{x}^* = \bm{\lambda}^{*T}\bm{b}$ because of the strong duality theorem.\\
+$$L(\bm{x}^*, \bm{\lambda}^*)=\bm{c}^T\bm{x}^* + \bm{\lambda}^{*T}A\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^* - \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^*$$
 So
-$$L(\bm{x}^*, \bm{\lambda}^*)=\bm{c}^T\bm{x}^* + \bm{\lambda}^{*T}A\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^*$$
-So
-$$L(\bm{x},\bm{\lambda}^*)\geq \bm{c}^T\bm{x}\geq \bm{c}^T\bm{x}^*=L(\bm{x}^*, \bm{\lambda}^*)$$
+$$L(\bm{x},\bm{\lambda}^*)= \bm{c}^T\bm{x}^*=L(\bm{x}^*, \bm{\lambda}^*)$$
+$$L(\bm{x},\bm{\lambda}^*)=L(\bm{x}^*, \bm{\lambda}^*)\Rightarrow L(\bm{x},\bm{\lambda}^*)\geq L(\bm{x}^*, \bm{\lambda}^*)$$
 So we have proved that $L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*)$.\\
 
 2. Prove that $L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda})$.\\
 Since $\bm{\lambda}$ is feasible for the dual problem, so
-$$L(\bm{x}^*,\bm{\lambda})=\bm{c}^T\bm{x}^* + \bm{\lambda}^TA\bm{x}^* - \bm{\lambda}^T\bm{b} = \bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^T\bm{b}$$
+$$L(\bm{x}^*,\bm{\lambda})=\bm{c}^T\bm{x}^* + \bm{\lambda}^TA\bm{x}^* - \bm{\lambda}^T\bm{b} = \bm{c}^T\bm{x}^* - \bm{c}^T\bm{x}^* - \bm{\lambda}^T\bm{b}=-\bm{\lambda}^T\bm{b}$$
 
-Since the dual objective value is $\bm{\lambda}^T\bm{b}$\\
-So $\bm{\lambda}^{*T}\bm{b}\geq \bm{\lambda}^T\bm{b}$\\
+Since the dual objective value is $-\bm{\lambda}^T\bm{b}$\\
+So $(-\bm{\lambda}^{*T}\bm{b})\geq (-\bm{\lambda}^T\bm{b})$\\
 So
-$$L(\bm{x}^*,\bm{\lambda})=\bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^T\bm{b}\leq \bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}$$
-And with strong duality theorem, we have $\bm{c}^T\bm{x}^* = \bm{\lambda}^{*T}\bm{b}$, so
-$$L(\bm{x}^*,\bm{\lambda})\leq \bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^*=L(\bm{x}^*, \bm{\lambda}^*)$$
+$$L(\bm{x}^*,\bm{\lambda})=-\bm{\lambda}^T\bm{b}\leq -\bm{\lambda}^{*T}\bm{b}$$
+From we have proved above, we can get that
+$$L(\bm{x}^*, \bm{\lambda}^*)=\bm{c}^T\bm{x}^*=-\bm{\lambda}^{*T}\bm{b}$$
+So
+$$L(\bm{x}^*,\bm{\lambda})\leq -\bm{\lambda}^{*T}\bm{b}=L(\bm{x}^*, \bm{\lambda}^*)$$
 
 So we have proved that $L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda})$.\\
 
