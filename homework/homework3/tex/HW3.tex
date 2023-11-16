@@ -125,8 +125,6 @@ Consider a linear programming that is in standard form:\\
 \end{aligned}
 \end{equation}
 
-The Lagrangian of the above linear programming is $L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} - \bm{\lambda}^T(A\bm{x} - \bm{b})$.\\
-
 Since for the primal question, the variables are $\bm{x}\geq 0$, so for $x_i\geq 0$, the dual constrain is that:\\
 $$a_i^T\bm{\lambda} \leq c_i$$
 where $a_i$ is the $i$-th column of $A$.\\
@@ -157,12 +155,11 @@ the dual problem becomes:
 
 The Lagrangian of the dual problem is:\\
 $$L(\bm{\lambda},\bm{y}) = \bm{\lambda}^T\bm{(-b)} - \bm{y}^T(M\bm{\lambda} - \bm{c})$$
+The dual objective function of the dual problem is that:
+$$g(\bm{y}) = \min\limits_{\bm{\lambda}} L(\bm{\lambda},\bm{y})=\min\limits_{\bm{\lambda}}\bm{\lambda}^T\bm{(-b)} - \bm{y}^T(M\bm{\lambda} - \bm{c})
+=\bm{y}^T\bm{c}-(\bm{b}^T+\bm{y}^TM)\bm{\lambda}$$
 
-
-Since for the dual question, the variables are $\bm{\lambda}\text{ is free}$, so for $\lambda_i\text{ is free}$, the dual of the dual constrain is that:\\
-$$m_i^T\bm{\lambda} = (-\bm{b})_i = -b_i$$
-where $m_i$ is the $i$-th column of $M$.\\
-
+Since for the dual objective function, the variables are $\bm{\lambda}\text{ is free}$, to avoid $g(\bm{y})=-\infty$, we need to constrain that $\bm{b}^T+\bm{y}^TM=\bm{0}$.\\
 So for the dual problem, the constrains are
 $$M^T\bm{y} = \bm{-b}$$
 
@@ -225,26 +222,35 @@ So above all, the dual of the dual of a linear programming (standard form) is it
 Consider the dual simplex method.\\
 Suppose that the current state is feasible, and after the pivot, it is also feasible.\\
 Then for the pivot process, we have:\\
-$r^T\geq 0$ always satisfies, this is to make sure the dual problem is feasible.\\
-As for choosing the pivot element, we choose the $p$-th row s.t. the current $b_p$ in the tableau is nagetive.\\
-i.e. $b_p<0$.\\
-Suppose that the $p$-th row is $y_{p1},y_{p2},\cdots,y_{pn},b_p$, and we choose the pivot element $a_{pq}$.\\
-s.t. $\hat{\epsilon}=\dfrac{r_q}{-y_{pq}} = \min\{\dfrac{r_i}{-y_{pi}}\mid a_{pi}<0,i=1,\cdots,n\}$.\\
+The reduced cost $\bm{r}^T\geq \bm{0}$ always satisfies, this is to make sure the dual problem is feasible.\\
+Suppose that the right vector is $\bar{\bm{b}}$.\\ 
+And suppose that for the current pivot, we choose the $p$-th row s.t. the current $\bar{b}_p$ in the tableau is nagetive.\\
+i.e. $\bar{b}_p<0$.\\
+Suppose that the elements in the $p$-th row are $y_{p1},y_{p2},\cdots,y_{pn},\bar{b}_p$, and we choose the pivot element $y_{pq}$.\\
+Where $\hat{\epsilon}=\dfrac{r_q}{-y_{pq}} = \min\{\dfrac{r_i}{-y_{pi}}\mid y_{pi}<0,i=1,\cdots,n\}$.\\
 Then we pivot with $y_{pq}$, and we need to update the tableau to make the $r_q$ become $0$ by:\\
-Let the last line of the simplex tableau adds $\hat{\epsilon}$ times the $p$-th row.\\
+Let the last row of the simplex tableau adds $\hat{\epsilon}$ times the $p$-th row.\\
 So we have
 $$r_q'=r_q+\hat{\epsilon}y_{pq}=r_q+\dfrac{r_q}{-y_{pq}}y_{pq}=0$$
-$$-f'=-f+\hat{\epsilon}b_p=-f+\dfrac{r_q}{-y_{pq}}b_p$$
+$$-f'=-f+\hat{\epsilon}\bar{b}_p$$
 
-We know that the lower-right corner if $-f$, where $f$ is the dual objective value of the dual problem.\\
+We know that before the pivot, the lower-right corner is $-f$, where $f$ is the dual objective value of the dual problem.\\
 So after the pivot, the lower-right corner becomes:\\
-$$-f'= -f - \frac{r_q}{y_{pq}}b_p$$
-Since $r_q>0,y_{pq}<0,b_p<0$, so $\frac{r_q}{y_{pq}}b_p>0$
+$$-f'=-f+\hat{\epsilon}\bar{b}_p$$
+Since $r_q>0,y_{pq}<0$, so $\hat{\epsilon}=\dfrac{r_q}{-y_{pq}}>0$. \\
+And since $\bar{b}_p<0$, so $\hat{\epsilon}\bar{b}_p<0$.\\
 So
-$$-f= -f - \frac{r_q}{y_{pq}}b_p < -f'$$
+$$-f'= -f +\hat{\epsilon}\bar{b}_p < -f$$
 i.e.
 $$f'>f$$
-So above all, the dual objective increases after a pivot of the dual simplex method.\\
+So the objective value of the dual problem increases after the pivot.\\
+And we can also see this in another conspect.\\
+Let $\hat{\bm{\lambda}}^T=\bm{\lambda}^T+\dfrac{r_p}{y_{pq}}\bm{u}_p$, where $\bm{u}_p$ is the $p$-th row of $B^{-1}$.\\
+Then we have: $\hat{\bm{\lambda}}^T\bm{b}=\bm{\lambda}^T\bm{b}-\hat{\epsilon}\bar{b}_p$.\\
+Since $\hat{\epsilon}\bar{b}_p<0$, so $\hat{\bm{\lambda}}^T\bm{b}>\bm{\lambda}^T\bm{b}$.\\
+Since $\bm{\lambda}^T\bm{b}$ is the objective value of the dual problem before pivot, and $\hat{\bm{\lambda}}^T\bm{b}$ is the objective value of the dual problem after pivot, so the objective value of the dual problem increases after the pivot.\\
+
+So above all, we have prove that the dual objective increases after a pivot of the dual simplex method.\\
 
 \newpage
 
@@ -254,33 +260,77 @@ So above all, the dual objective increases after a pivot of the dual simplex met
     Let $L(\bm{x}, \bm{\lambda})$ be the Lagrangian of a linear programming problem, and $(\bm{x}^*, \bm{\lambda}^*)$ be the optimal primal-dual solution. Prove that $$L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}),$$ for any primal feasible $\bm{x}$ and dual feasible $\bm{\lambda}$.\textcolor{red}{[25pts]}
 \end{problem}
 
-Suppose that the primal problem is that:
+Suppose that the primal problem is that
 \begin{equation}
 \begin{aligned}
 \min_{\bm{x}} \quad & \bm{c}^T\bm{x} \\
-\text { s.t. } \quad & A\bm{x} = \bm{b} \\
-& \bm{x} \geq 0
+\text { s.t. } \quad & A\bm{x} \geq \bm{b} \\
 \end{aligned}
 \end{equation}
 
-And the dual problem is that:
+Then the Lagrangian of the primal problem is that:
+$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})$$
+And the primal objective function is
+$$f(\bm{x}) = \max\limits_{\bm{\lambda}} L(\bm{x},\bm{\lambda})$$
+Since we want to avoid $f(\bm{x})=+\infty$, so we need to constrain that $\bm{\lambda}\geq \bm{0}$.\\
+So the dual problem is that:
 \begin{equation}
 \begin{aligned}
 \max_{\bm{\lambda}} \quad & \bm{\lambda}^T\bm{b} \\
-\text { s.t. } \quad & A^T\bm{\lambda} \leq \bm{c} \\
+\text { s.t. } \quad & A^T\bm{\lambda} = \bm{c} \\
+& \bm{\lambda} \geq \bm{0}
 \end{aligned}
 \end{equation}
 
-And the Lagrangian of the primal problem is that:
-$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b})$$
+Then we can prove the inequalities.\\
+1. Prove that $L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*)$.\\
+Since $(\bm{x}^*, \bm{\lambda}^*)$ is the optimal primal-dual solution, so we have:\\
+According to the strong duality theorem, we have:
+$$\bm{c}^T\bm{x}^* = \bm{\lambda}^{*T}\bm{b}$$
+So
+$$L(\bm{x}, \bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}(A\bm{x} - \bm{b})=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{c}^{T}\bm{x}^*$$
+And since $\bm{\lambda}^*$ is feasible for the dual problem, so $A^T\bm{\lambda}^* = \bm{c}$, i.e. $\bm{\lambda}^{*T}A = \bm{c}^T$.\\
+So
+$$L(\bm{x},\bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{\lambda}^{*T}A\bm{x} - \bm{c}^{T}\bm{x}^*=\bm{c}^T\bm{x} + \bm{c}^T\bm{x} - \bm{c}^T\bm{x}^* $$
 
-Since we can considering the primal feasible $\bm{x}$ and dual feasible $\bm{\lambda}$, so we have:
-$$A\bm{x} = \bm{b}$$
-$$\bm{c}^T\bm{x} \geq \bm{c}^T\bm{x}^*$$
-If we put $A\bm{x} - \bm{b} = \bm{0}$ into the Lagrangian, we have:
-$$L(\bm{x},\bm{\lambda}) = \bm{c}^T\bm{x} + \bm{\lambda}^T(A\bm{x} - \bm{b}) = \bm{c}^T\bm{x} + \bm{\lambda}^T\bm{0} = \bm{c}^T\bm{x}$$
-And since $\bm{c}^T\bm{x} \geq \bm{c}^T\bm{x}^*$, and $L(\bm{x},\bm{\lambda})$ do not contain $\bm{\lambda}$, so we have:
-$$L(\bm{x},\bm{\lambda}) \geq L(\bm{x}^*,\bm{\lambda}) = L(\bm{x}^*,\bm{\lambda})$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Since the objective value of the primal problem is $\bm{c}^T\bm{x}$, so $\bm{c}^T\bm{x}\geq\bm{c}^T\bm{x}^*$\\
+So
+$$L(\bm{x},\bm{\lambda}^*)=\bm{c}^T\bm{x} + \bm{c}^T\bm{x} - \bm{c}^T\bm{x}^*\geq \bm{c}^T\bm{x}$$
+
+As for $L(\bm{x}^*,\bm{\lambda}^*)$, since we also have $\bm{c}^T\bm{x}^* = \bm{\lambda}^{*T}\bm{b}$ because of the strong duality theorem.\\
+So
+$$L(\bm{x}^*, \bm{\lambda}^*)=\bm{c}^T\bm{x}^* + \bm{\lambda}^{*T}A\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^*$$
+So
+$$L(\bm{x},\bm{\lambda}^*)\geq \bm{c}^T\bm{x}\geq \bm{c}^T\bm{x}^*=L(\bm{x}^*, \bm{\lambda}^*)$$
+So we have proved that $L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*)$.\\
+
+2. Prove that $L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda})$.\\
+Since $\bm{\lambda}$ is feasible for the dual problem, so
+$$L(\bm{x}^*,\bm{\lambda})=\bm{c}^T\bm{x}^* + \bm{\lambda}^TA\bm{x}^* - \bm{\lambda}^T\bm{b} = \bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^T\bm{b}$$
+
+Since the dual objective value is $\bm{\lambda}^T\bm{b}$\\
+So $\bm{\lambda}^{*T}\bm{b}\geq \bm{\lambda}^T\bm{b}$\\
+So
+$$L(\bm{x}^*,\bm{\lambda})=\bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^T\bm{b}\leq \bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}$$
+And with strong duality theorem, we have $\bm{c}^T\bm{x}^* = \bm{\lambda}^{*T}\bm{b}$, so
+$$L(\bm{x}^*,\bm{\lambda})\leq \bm{c}^T\bm{x}^* + \bm{c}^T\bm{x}^* - \bm{\lambda}^{*T}\bm{b}=\bm{c}^T\bm{x}^*=L(\bm{x}^*, \bm{\lambda}^*)$$
+
+So we have proved that $L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda})$.\\
 
 So above all, we have prove that 
 $$L(\bm{x}, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda}^*) \geq L(\bm{x}^*, \bm{\lambda})$$
