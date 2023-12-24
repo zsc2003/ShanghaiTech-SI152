@@ -116,6 +116,7 @@
     $f$ is a positive definite quadratic function $$f(\pmb x) = \frac{1}{2}\pmb x^T\pmb A\pmb x + \pmb b^T\pmb x,  \quad \pmb A \in \mathbb{S}_{++}^n, \pmb b \in \mathbb{R}^n,$$ $\pmb x^k$ is the current iteration point, $\pmb d^k$ is the descent direction. Derive the step size of exact linear search \textcolor{red}{[20pts]} $$\alpha^k = \arg\min_{\alpha > 0}f(\pmb x^k + \alpha \pmb d^k).$$
 \end{problem}
 
+Let $g(\pmb x)=f(\pmb x^k+\alpha\pmb d^k)=\dfrac{1}{2}(\pmb x^k+\alpha\pmb d^k)^T\pmb A(\pmb x^k+\alpha\pmb d^k)+\pmb b^T(\pmb x^k+\alpha\pmb d^k)$.
 
 
 
