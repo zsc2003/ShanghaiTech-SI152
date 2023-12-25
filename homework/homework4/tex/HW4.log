@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  25 DEC 2023 20:15
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  26 DEC 2023 00:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -461,8 +461,7 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count316
 \g__pdf_backend_annotation_int=\count317
 \g__pdf_backend_link_int=\count318
-)
-No file HW4.aux.
+) (./HW4.aux)
 \openout1 = `HW4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
@@ -475,7 +474,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
 LaTeX Font Info:    ... okay on input line 148.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 148.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 148.
-(d:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
+ (d:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 148.
@@ -573,11 +572,8 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 148.
 LaTeX Info: Redefining \pageref on input line 148.
 LaTeX Info: Redefining \nameref on input line 148.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 \c@lstlisting=\count320
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -684,12 +680,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 15750 strings out of 476179
- 243579 string characters out of 5813072
- 1117682 words of memory out of 5000000
+ 15752 strings out of 476179
+ 243595 string characters out of 5813072
+ 1118682 words of memory out of 5000000
  36227 multiletter control sequences out of 15000+600000
  482377 words of font info for 86 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 87i,6n,90p,724b,1289s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,6n,90p,724b,1290s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on HW4.pdf (6 pages).

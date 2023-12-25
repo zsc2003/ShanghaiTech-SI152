@@ -164,9 +164,21 @@
     $f$ is a positive definite quadratic function $$f(\pmb x) = \frac{1}{2}\pmb x^T\pmb A\pmb x + \pmb b^T\pmb x,  \quad \pmb A \in \mathbb{S}_{++}^n, \pmb b \in \mathbb{R}^n,$$ $\pmb x^k$ is the current iteration point, $\pmb d^k$ is the descent direction. Derive the step size of exact linear search \textcolor{red}{[20pts]} $$\alpha^k = \arg\min_{\alpha > 0}f(\pmb x^k + \alpha \pmb d^k).$$
 \end{problem}
 
-Let $g(\pmb x)=f(\pmb x^k+\alpha\pmb d^k)=\dfrac{1}{2}(\pmb x^k+\alpha\pmb d^k)^T\pmb A(\pmb x^k+\alpha\pmb d^k)+\pmb b^T(\pmb x^k+\alpha\pmb d^k)$.
-
-
+Let $g(\alpha)=f(\pmb x^k+\alpha\pmb d^k)=\dfrac{1}{2}(\pmb x^k+\alpha\pmb d^k)^T\pmb A(\pmb x^k+\alpha\pmb d^k)+\pmb b^T(\pmb x^k+\alpha\pmb d^k)$.\\
+So $$\dfrac{\partial g}{\partial \alpha}=\alpha(\pmb d^k)^T\pmb A\pmb d^k+\dfrac{1}{2}(\pmb d^k)^T\pmb A\pmb x^k+\dfrac{1}{2}(\pmb x^k)^T\pmb A\pmb d^k+\pmb b^T\pmb d^k$$
+Since $\pmb A\in \mathbb{S}_{++}^n$, i.e. $\pmb A$ is symmetric, so $$(\pmb d^k)^T\pmb A\pmb x^k=(\pmb x^k)^T\pmb A\pmb d^k$$
+So $$\dfrac{\partial g}{\partial\alpha}=\alpha(\pmb d^k)^T\pmb A\pmb d^k+(\pmb d^k)^T\pmb A\pmb x^k+\pmb b^T\pmb d^k$$
+And $$\dfrac{\partial^2 g}{\partial\alpha^2}=(\pmb d^k)^T\pmb A\pmb d^k$$
+Since $\pmb A\in \mathbb{S}_{++}^n$, which means that $\pmb A$ is a positive defined matrix, i.e. 
+$$\forall \pmb x\in \mathbb{R}^n, \pmb x^T\pmb A\pmb x>0$$
+So $$\forall\pmb d^k, \dfrac{\partial^2 g}{\partial\alpha^2}=(\pmb d^k)^T\pmb A\pmb d^k>0$$
+So $g(\alpha)$ is a convex function. In order to find the minimum point $\alpha^k = \arg\min\limits_{\alpha > 0}g(\alpha)$, we just need to let the gradient to be $0$.
+i.e. $$\dfrac{\partial g}{\partial\alpha}(\alpha^k)=0$$
+So $$\alpha^k(\pmb d^k)^T\pmb A\pmb d^k+(\pmb d^k)^T\pmb A\pmb x^k+\pmb b^T\pmb d^k=0$$
+So $$\alpha^k = -\dfrac{((\pmb d^k)^T\pmb A\pmb x^k+\pmb b^T\pmb d^k)}{(\pmb d^k)^T\pmb A\pmb d^k}$$
+Since we have known that $(\pmb d^k)^T\pmb A\pmb d^k>0$, so the $\alpha^k$ is a legal solution.\\
+So abovel all, the step size of exact linear search is
+$$\alpha^k = -\dfrac{((\pmb d^k)^T\pmb A\pmb x^k+\pmb b^T\pmb d^k)}{(\pmb d^k)^T\pmb A\pmb d^k}$$
 
 \newpage
 % %===============================
@@ -196,7 +208,7 @@ Let $g(\pmb x)=f(\pmb x^k+\alpha\pmb d^k)=\dfrac{1}{2}(\pmb x^k+\alpha\pmb d^k)^
 
 \lstinputlisting[title=Quasi\_Newton\_method.m, language=matlab]{../code/Quasi_Newton_method.m}
 
-\lstinputlisting[title=output,]{../code/output.txt}
+\lstinputlisting[title=output]{../code/output.txt}
 
 
 
