@@ -13,7 +13,7 @@ function Quasi_Newton_method(init_point)
 
 
     print_info(obj, step_size, grad_res);
-    plot_trace(points, 3)
+    plot_trace(points, 3, 'Quasi-Newton method');
 
     disp('=============== finished Quasi-Newton method ===============')
     disp('============================================================')

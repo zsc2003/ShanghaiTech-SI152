@@ -13,7 +13,7 @@ function Newton_method(init_point)
 
 
     print_info(obj, step_size, grad_res);
-    plot_trace(points, 2)
+    plot_trace(points, 2, 'Newton method');
 
     disp('================== finished Newton method ==================')
     disp('============================================================')
