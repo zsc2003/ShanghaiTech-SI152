@@ -21,51 +21,10 @@
 \usepackage{color}
 \usepackage{bm}
 
-\usepackage{xcolor} 
-\usepackage{listings}
-\lstset{%
-	alsolanguage=Java,
-	%alsolanguage=[ANSI]C,      %可以添加很多个alsolanguage,如alsolanguage=matlab,alsolanguage=VHDL等
-	alsolanguage= matlab,
-	alsolanguage= XML,
-	tabsize=4, %
-	frame=shadowbox, %把代码用带有阴影的框圈起来
-	commentstyle=\color{red!50!green!50!blue!50},%浅灰色的注释
-	rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
-	keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
-	showstringspaces=false,%不显示代码字符串中间的空格标记
-	stringstyle=\ttfamily, % 代码字符串的特殊格式
-	keepspaces=true, %
-	breakindent=22pt, %
-	numbers=left,%左侧显示行号 往左靠,还可以为right，或none，即不加行号
-	stepnumber=1,%若设置为2，则显示行号为1,3,5，即stepnumber为公差,默认stepnumber=1
-	%numberstyle=\tiny, %行号字体用小号
-	numberstyle={\color[RGB]{0,192,192}\tiny} ,%设置行号的大小，大小有tiny,scriptsize,footnotesize,small,normalsize,large等
-	numbersep=8pt,  %设置行号与代码的距离，默认是5pt
-	basicstyle=\footnotesize, % 这句设置代码的大小
-	showspaces=false, %
-	flexiblecolumns=true, %
-	breaklines=true, %对过长的代码自动换行
-	breakautoindent=true,%
-	breakindent=4em, %
-	escapebegin=\begin{CJK*}{GBK}{hei},escapeend=\end{CJK*},
-	aboveskip=1em, %代码块边框
-	tabsize=2,
-	showstringspaces=false, %不显示字符串中的空格
-	backgroundcolor=\color[RGB]{245,245,244},   %代码背景色
-	%backgroundcolor=\color[rgb]{0.91,0.91,0.91}    %添加背景色
-	escapeinside=``,  %在``里显示中文
-	%% added by http://bbs.ctex.org/viewthread.php?tid=53451
-	fontadjust,
-	captionpos=t,
-	framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
-	xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
-	texcl=true,
-	% 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
-	extendedchars=false,columns=flexible,mathescape=true
-	% numbersep=-1em
-}
-
+\usepackage{minted}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[cache=false]{minted}
 
 
 \newtheorem{thm}{Theorem}
@@ -180,8 +139,30 @@ Let $g(\pmb x)=f(\pmb x^k+\alpha\pmb d^k)=\dfrac{1}{2}(\pmb x^k+\alpha\pmb d^k)^
     Solve the optimal solution of the Rosenbrock function $$f(x, y) = (1 - x)^2 + 100(y - x^2)^2, $$ using MATLAB programming to implement three algorithms (each 20pts): gradient descent (GD) method, Newton method, and Quasi-Newton methods (either rank-1, DFP or BFGS). You are required to print iteration information of last 10 steps: including objective, step size, residual of gradient. Technical implementation: explain how to choose the step size, how to set the termination criteria, how to choose the initial point, the value of the required parameters, converge or not and convergence rate. (paste the code in the pdf to submit it, no need to submit the source code) \textcolor{red}{[60pts]}
 \end{problem}
 
+% \begin{listing}[!ht]
+% 	\begin{minted}{c}
+% 	#include <stdio.h>
+% 	int main() {
+% 	   printf("Hello, World!"); /*printf() outputs the quoted string*/
+% 	   return 0;
+% 	}
+% 	\end{minted}
+% \caption{Hello World in C}
+% \end{listing}
 
-\lstinputlisting[title=Rosenbrock.m, language=matlab]{../code/Rosenbrock.m}
+\begin{minted}[mathescape,
+               linenos,
+               numbersep=5pt,
+               gobble=2,
+               frame=lines,
+               framesep=2mm]{c}
+int main() {
+printf("hello, world");
+return 0;
+}
+\end{minted}
+
+% \lstinputlisting[title=Rosenbrock.m, language=matlab]{../code/Rosenbrock.m}
 	
 % \lstinputlisting[title=print\_info.m, language=matlab]{../code/print_info.m}
 
