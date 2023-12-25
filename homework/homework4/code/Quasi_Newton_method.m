@@ -1,6 +1,6 @@
-function Newton_method(init_point)
+function Quasi_Newton_method(init_point)
     disp('===========================================================')
-    disp('=================== start Newton method ===================')
+    disp('================ start Quasi-Newton method ================')
 
     % [x, y] = init_point;
     x = init_point(1);
@@ -13,8 +13,8 @@ function Newton_method(init_point)
 
 
     print_info(obj, step_size, grad_res);
-    plot_trace(points, 2)
+    plot_trace(points, 3)
 
-    disp('================== finished Newton method ==================')
+    disp('=============== finished Quasi-Newton method ===============')
     disp('============================================================')
 end
