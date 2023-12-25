@@ -21,8 +21,7 @@
 \usepackage{color}
 \usepackage{bm}
 
-\usepackage[UTF8]{ctex} % 显示中文
-\usepackage{xcolor} % 颜色
+\usepackage{xcolor} 
 \usepackage{listings}
 \lstset{%
 	alsolanguage=Java,
@@ -66,6 +65,7 @@
 	extendedchars=false,columns=flexible,mathescape=true
 	% numbersep=-1em
 }
+
 
 
 \newtheorem{thm}{Theorem}
@@ -180,22 +180,19 @@ Let $g(\pmb x)=f(\pmb x^k+\alpha\pmb d^k)=\dfrac{1}{2}(\pmb x^k+\alpha\pmb d^k)^
     Solve the optimal solution of the Rosenbrock function $$f(x, y) = (1 - x)^2 + 100(y - x^2)^2, $$ using MATLAB programming to implement three algorithms (each 20pts): gradient descent (GD) method, Newton method, and Quasi-Newton methods (either rank-1, DFP or BFGS). You are required to print iteration information of last 10 steps: including objective, step size, residual of gradient. Technical implementation: explain how to choose the step size, how to set the termination criteria, how to choose the initial point, the value of the required parameters, converge or not and convergence rate. (paste the code in the pdf to submit it, no need to submit the source code) \textcolor{red}{[60pts]}
 \end{problem}
 
+
 \lstinputlisting[title=Rosenbrock.m, language=matlab]{../code/Rosenbrock.m}
 	
-\lstinputlisting[title=print\_info.m, language=matlab]{../code/print_info.m}
+% \lstinputlisting[title=print\_info.m, language=matlab]{../code/print_info.m}
 
-\lstinputlisting[title=plot\_trace.m, language=matlab]{../code/plot_trace.m}
+% \lstinputlisting[title=plot\_trace.m, language=matlab]{../code/plot_trace.m}
 
-\lstinputlisting[title=gradient\_descent.m, language=matlab]{../code/gradient_descent.m}
+% \lstinputlisting[title=gradient\_descent.m, language=matlab]{../code/gradient_descent.m}
 
-\lstinputlisting[title=Newton\_method.m, language=matlab]{../code/Newton_method.m}
+% \lstinputlisting[title=Newton\_method.m, language=matlab]{../code/Newton_method.m}
 
-\lstinputlisting[title=Quasi\_Newton\_method.m, language=matlab]{../code/Quasi_Newton_method.m}
+% \lstinputlisting[title=Quasi\_Newton\_method.m, language=matlab]{../code/Quasi_Newton_method.m}
 
-% print the output info
-11111
-
-$$what happened$$?
 
 
 
