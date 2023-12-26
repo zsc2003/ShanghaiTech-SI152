@@ -23,13 +23,13 @@ function gradient_descent(init_point)
         grad_res = [grad_res, norm(nabla)];
 
         [newval, new_nabla] = Rosenbrock(x, y);
-        if (abs(newval - val) < 0.0001)
+        if (abs(newval - val) < 1e-15)
             break;
         end
     end
 
     print_info(obj, step_size, grad_res);
-    plot_trace(points, 1)
+    plot_trace(points, 1, 'gradient descent method');
 
     disp('============= finished gradient descent method =============')
     disp('============================================================')

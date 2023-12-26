@@ -1,4 +1,4 @@
-function plot_trace(points, id)
+function plot_trace(points, id, name)
     % plot the contour of of Rosenbrock function
     % then plot the trace of the points
     % points is a matrix of size (n, 2)
@@ -23,4 +23,9 @@ function plot_trace(points, id)
 
     % set the axis
     axis([-2, 2, -1, 3]);
+
+    % set name
+    title(name);
+    
+    
 end
