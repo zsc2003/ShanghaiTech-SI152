@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  26 DEC 2023 00:55
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  3 JAN 2024 09:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -636,7 +636,22 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 164.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 164.
- [2] [3] (../code/Rosenbrock.m) (../code/print_info.m
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 193--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+
+ []
+
+[3] (../code/Rosenbrock.m) (../code/print_info.m
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 3.
 LaTeX Font Info:    No file TUpcr.fd. on input line 3.
 
@@ -644,12 +659,12 @@ LaTeX Font Info:    No file TUpcr.fd. on input line 3.
 LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
 (Font)              using `TU/lmr/m/n' instead on input line 3.
 
-) (../code/plot_trace.m) (../code/gradient_descent.m
+) (../code/plot_trace.m) (../code/gradient_descent.m [4]
 Overfull \hbox (16.11699pt too wide) in paragraph at lines 2--3
 [][] 
  []
 
-[4]
+
 Overfull \hbox (22.72499pt too wide) in paragraph at lines 35--36
 [][] 
  []
@@ -664,7 +679,7 @@ Overfull \hbox (22.72499pt too wide) in paragraph at lines 19--20
 [][] 
  []
 
-) (../code/Quasi_Newton_method.m [5]
+[5]) (../code/Quasi_Newton_method.m
 Overfull \hbox (16.11699pt too wide) in paragraph at lines 2--3
 [][] 
  []
@@ -680,10 +695,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 15752 strings out of 476179
- 243595 string characters out of 5813072
- 1118682 words of memory out of 5000000
- 36227 multiletter control sequences out of 15000+600000
+ 15754 strings out of 476179
+ 243610 string characters out of 5813072
+ 1115682 words of memory out of 5000000
+ 36229 multiletter control sequences out of 15000+600000
  482377 words of font info for 86 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  87i,6n,90p,724b,1290s stack positions out of 10000i,1000n,20000p,200000b,200000s

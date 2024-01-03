@@ -187,6 +187,23 @@ $$\alpha^k = -\dfrac{((\pmb d^k)^T\pmb A\pmb x^k+\pmb b^T\pmb d^k)}{(\pmb d^k)^T
     Prove that $f: \mathbb{R}^n \rightarrow \mathbb{R}$ is affine if and only if $f$ is both convex and concave. \textcolor{red}{[20pts]} 
 \end{problem}
 
+1. sufficiency:\\
+If $f$ is affine, then we can write $f$ as $f(\pmb x)=\pmb w^{\top}\pmb x+b$, where $\pmb w\in \mathbb{R}^n, b\in \mathbb{R}$.\\
+Then we have $$\nabla f(\pmb x)=\pmb w$$
+and $$\nabla^2 f(\pmb x)=\pmb 0$$
+$\nabla^2 f(\pmb x) \succeq 0$
+$\nabla^2 f(\pmb x) \preceq 0$
+So both convex and concave.\\
+
+2. necessity:\\
+concave, $\forall \pmb x, \nabla^2 f(\pmb x) \preceq 0$\\
+convex, $\forall \pmb x, \nabla^2 f(\pmb x) \succeq 0$\\
+Since $\nabla^2 f(\pmb x) \preceq 0$ and $\nabla^2 f(\pmb x) \succeq 0$, so $\nabla^2 f(\pmb x)=\pmb 0$\\
+
+Since convex, $C^2$, let $\pmb d=\pmb x-\pmb x_0$, then we have
+$f(\pmb x)=f(\pmb x_0) + \nabla f(\pmb x_0)^{\top}d+\dfrac{1}{2}{\pmb d}^{\top}\nabla^2 f(\pmb x_0 + \alpha\pmb d)^{\top}{\pmb d}$, where $\alpha\in(0,1)$\\
+
+
 
 
 \newpage
