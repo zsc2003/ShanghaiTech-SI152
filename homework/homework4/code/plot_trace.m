@@ -27,5 +27,4 @@ function plot_trace(points, id, name)
     % set name
     title(name);
     
-    
 end
