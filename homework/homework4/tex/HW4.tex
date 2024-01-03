@@ -191,20 +191,28 @@ $$\alpha^k = -\dfrac{((\pmb d^k)^T\pmb A\pmb x^k+\pmb b^T\pmb d^k)}{(\pmb d^k)^T
 If $f$ is affine, then we can write $f$ as $f(\pmb x)=\pmb w^{\top}\pmb x+b$, where $\pmb w\in \mathbb{R}^n, b\in \mathbb{R}$.\\
 Then we have $$\nabla f(\pmb x)=\pmb w$$
 and $$\nabla^2 f(\pmb x)=\pmb 0$$
-$\nabla^2 f(\pmb x) \succeq 0$
-$\nabla^2 f(\pmb x) \preceq 0$
-So both convex and concave.\\
+So
+$$\nabla^2 f(\pmb x) \succeq \pmb 0, \nabla^2 f(\pmb x) \preceq \pmb 0$$
+So $f$ is both convex and concave.\\
 
 2. necessity:\\
-concave, $\forall \pmb x, \nabla^2 f(\pmb x) \preceq 0$\\
-convex, $\forall \pmb x, \nabla^2 f(\pmb x) \succeq 0$\\
-Since $\nabla^2 f(\pmb x) \preceq 0$ and $\nabla^2 f(\pmb x) \succeq 0$, so $\nabla^2 f(\pmb x)=\pmb 0$\\
+If $f$ is convex and concave, then we have:\\
+since $f$ is concave, so $$\forall \pmb x, \nabla^2 f(\pmb x) \preceq \pmb 0$$
+since $f$ is convex, so $$\forall \pmb x, \nabla^2 f(\pmb x) \succeq \pmb 0$$
+Since $\nabla^2 f(\pmb x) \preceq \pmb 0$ and $\nabla^2 f(\pmb x) \succeq \pmb 0$, so $$\nabla^2 f(\pmb x)=\pmb 0$$
 
-Since convex, $C^2$, let $\pmb d=\pmb x-\pmb x_0$, then we have
-$f(\pmb x)=f(\pmb x_0) + \nabla f(\pmb x_0)^{\top}d+\dfrac{1}{2}{\pmb d}^{\top}\nabla^2 f(\pmb x_0 + \alpha\pmb d)^{\top}{\pmb d}$, where $\alpha\in(0,1)$\\
+Since $f$ is convex, so we can do the Taylor expansion of $f$ at $\pmb x_0$, and let $\pmb d=\pmb x-\pmb x_0$, then we have:
+$$f(\pmb x)=f(\pmb x_0) + \nabla f(\pmb x_0)^{\top}{\pmb d}+\dfrac{1}{2}{\pmb d}^{\top}\nabla^2 f(\pmb x_0 + \alpha\pmb d)^{\top}{\pmb d}$$
+where $\alpha\in(0,1)$.\\
+Since we have proved that $\forall \pmb x,\nabla^2 f(\pmb x)=\pmb 0$, so we have:
+$$f(\pmb x)=f(\pmb x_0) + \nabla f(\pmb x_0)^{\top}{\pmb d}$$
+$$f(\pmb x)=\nabla f(\pmb x_0)^{\top}{\pmb x}+(f(\pmb x_0)-\nabla f(\pmb x_0)^{\top}{\pmb x_0})$$
+Since $\pmb x_0$ is a constant, so we can let $\pmb w = \nabla f(\pmb x_0), b=f(\pmb x_0)-\nabla f(\pmb x_0)^{\top}{\pmb x_0}$, so we have:
+$$f(\pmb x)={\pmb w}^{\top}{\pmb x}+b$$
+Where $\pmb w, b$ are constants.\\ 
+So $f$ is affine.\\
 
-
-
+So above all, we have proved that $f:\mathbb{R}^n\rightarrow \mathbb{R}$ is affine if and only if $f$ is both convex and concave.
 
 \newpage
 %===============================
@@ -226,7 +234,5 @@ $f(\pmb x)=f(\pmb x_0) + \nabla f(\pmb x_0)^{\top}d+\dfrac{1}{2}{\pmb d}^{\top}\
 \lstinputlisting[title=Quasi\_Newton\_method.m, language=matlab]{../code/Quasi_Newton_method.m}
 
 \lstinputlisting[title=output]{../code/output.txt}
-
-
 
 \end{document}
