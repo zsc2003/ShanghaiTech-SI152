@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  4 JAN 2024 22:04
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  4 JAN 2024 22:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -461,7 +461,8 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count316
 \g__pdf_backend_annotation_int=\count317
 \g__pdf_backend_link_int=\count318
-) (./HW4.aux)
+)
+No file HW4.aux.
 \openout1 = `HW4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
@@ -474,7 +475,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
 LaTeX Font Info:    ... okay on input line 148.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 148.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 148.
- (d:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
+(d:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 148.
@@ -572,8 +573,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 148.
 LaTeX Info: Redefining \pageref on input line 148.
 LaTeX Info: Redefining \nameref on input line 148.
-\c@lstlisting=\count320
 
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+\c@lstlisting=\count320
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -647,32 +651,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--205
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 215--222
+Underfull \hbox (badness 10000) in paragraph at lines 219--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--230
+Underfull \hbox (badness 10000) in paragraph at lines 229--234
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--241
+Underfull \hbox (badness 10000) in paragraph at lines 239--247
 
  []
 
+[4]
 File: ../code/result/gradient_descent.png Graphic file (type bmp)
 <../code/result/gradient_descent.png>
 File: ../code/result/Newton_method.png Graphic file (type bmp)
 <../code/result/Newton_method.png>
 File: ../code/result/Quasi_Newton_method.png Graphic file (type bmp)
 <../code/result/Quasi_Newton_method.png>
-(../code/output.txt [4])
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
+ (../code/output.txt) [5]
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 
  []
 
-(../code/Rosenbrock.m) [5] (../code/print_info.m
+(../code/Rosenbrock.m) (../code/print_info.m
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 4.
 LaTeX Font Info:    No file TUpcr.fd. on input line 4.
 
@@ -716,9 +721,9 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 15793 strings out of 476179
- 244700 string characters out of 5813072
- 1268682 words of memory out of 5000000
+ 15791 strings out of 476179
+ 244684 string characters out of 5813072
+ 1233682 words of memory out of 5000000
  36262 multiletter control sequences out of 15000+600000
  482377 words of font info for 86 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
