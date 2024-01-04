@@ -1,12 +1,15 @@
-function Quasi_Newton_method(init_point)
+function Quasi_Newton_method()
     disp('===========================================================')
     disp('================ start Quasi-Newton method ================')
+    disp(' k       x_k            y_k          ||f(x_k, y_k)||   ||d||  step_size')
+    disp('===========================================================')
 
-    % [x, y] = init_point;
-    x = init_point(1);
-    y = init_point(2);
 
-    points = [[x, y]];
+    % (x, y) are random initial points
+    x = rand();
+    y = rand();
+
+    points = [x, y];
     obj = [];
     step_size = [];
     grad_res = [];

@@ -1,12 +1,12 @@
-function Newton_method(init_point)
+function Newton_method()
     disp('===========================================================')
     disp('=================== start Newton method ===================')
 
-    % [x, y] = init_point;
-    x = init_point(1);
-    y = init_point(2);
+    % (x, y) are random initial points
+    x = rand();
+    y = rand();
 
-    points = [[x, y]];
+    points = [x, y];
     obj = [];
     step_size = [];
     grad_res = [];
