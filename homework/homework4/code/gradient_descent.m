@@ -1,38 +1,43 @@
 function gradient_descent()
     disp('===========================================================')
     disp('============== start gradient descent method ==============')
-    disp('k(step)   x_k          y_k    ||f(x_k, y_k)||   lr     ||d||')
-    disp('===========================================================')
+    disp(' k       x_k        y_k    f(x_k, y_k) step size    ||d||  ')
+    disp('==== ========== ========== ========== ========== ==========')
 
-    % (x, y) are random initial points
+    %  (x, y) are random initial points
     x = rand() * 2 - 1;
     y = rand() * 2 - 1;
 
-    points = [];
-    points = [points, [x, y]];
-    obj = [];
-    step_size = [];
-    grad_res = [];
-    while (1)
-        % update the value of x and y
-        [val, nabla] = Rosenbrock(x, y);
-        % [x, y] = [x, y] - 0.001 * nabla;
-        x = x - 0.002 * nabla(1);
-        y = y - 0.002 * nabla(2);
-        
-        points = [points; [x, y]];
-        obj = [obj, val];
-        step_size = [step_size, 0.001];
-        grad_res = [grad_res, norm(nabla)];
+    grad_res = zeros(1, 10000);
+    obj = zeros(1, 10000);
+    step_size = zeros(1, 10000);
+    points = zeros(10000, 2);
 
-        % [newval, new_nabla] = Rosenbrock(x, y);
-        if (norm(nabla) < 1e-3)
+    [val, grad, Hessian] = Rosenbrock(x, y);
+    obj(1) = val;
+    grad_res(1) = norm(grad);
+    points(1, :) = [x, y];
+
+    for iter = 2:10000
+        % update the value of x and y
+        [val, grad, Hessian] = Rosenbrock(x, y);
+        % [x, y] = [x, y] - 0.002 * nabla;
+        
+        x = x - 0.002 * grad(1);
+        y = y - 0.002 * grad(2);
+
+        points(iter, :) = [x, y];
+        obj(iter) = val;
+        step_size(iter - 1) = 0.002;
+        grad_res(iter - 1) = norm(grad);
+        
+        if (norm(grad) < 1e-4)
             break;
         end
     end
 
-    print_info(obj, points, step_size, grad_res);
-    plot_trace(points, 1, 'gradient descent method');
+    print_info(iter, obj, points, step_size, grad_res);
+    plot_trace(iter, points, 1, 'gradient descent method');
 
     disp('============= finished gradient descent method =============')
     disp('============================================================')

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  4 JAN 2024 14:15
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.13)  4 JAN 2024 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -647,25 +647,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 202--205
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
+Underfull \hbox (badness 10000) in paragraph at lines 215--222
 
  []
 
-(../code/Rosenbrock.m) (../code/print_info.m
-LaTeX Font Info:    Trying to load font information for TU+pcr on input line 3.
-LaTeX Font Info:    No file TUpcr.fd. on input line 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--230
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--241
+
+ []
+
+File: ../code/result/gradient_descent.png Graphic file (type bmp)
+<../code/result/gradient_descent.png>
+File: ../code/result/Newton_method.png Graphic file (type bmp)
+<../code/result/Newton_method.png>
+File: ../code/result/Quasi_Newton_method.png Graphic file (type bmp)
+<../code/result/Quasi_Newton_method.png>
+(../code/output.txt [4])
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
+
+ []
+
+(../code/Rosenbrock.m) [5] (../code/print_info.m
+LaTeX Font Info:    Trying to load font information for TU+pcr on input line 4.
+LaTeX Font Info:    No file TUpcr.fd. on input line 4.
 
 
 LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 3.
+(Font)              using `TU/lmr/m/n' instead on input line 4.
 
-) (../code/plot_trace.m [4]) (../code/gradient_descent.m
+) (../code/plot_trace.m) (../code/gradient_descent.m
 Overfull \hbox (16.11699pt too wide) in paragraph at lines 2--3
 [][] 
  []
 
-[5]
-Overfull \hbox (22.72499pt too wide) in paragraph at lines 35--36
+[6]
+Overfull \hbox (22.72499pt too wide) in paragraph at lines 43--44
 [][] 
  []
 
@@ -674,8 +695,8 @@ Overfull \hbox (16.11699pt too wide) in paragraph at lines 2--3
 [][] 
  []
 
-
-Overfull \hbox (22.72499pt too wide) in paragraph at lines 19--20
+[7]
+Overfull \hbox (22.72499pt too wide) in paragraph at lines 45--46
 [][] 
  []
 
@@ -684,23 +705,23 @@ Overfull \hbox (16.11699pt too wide) in paragraph at lines 2--3
 [][] 
  []
 
-
-Overfull \hbox (22.72499pt too wide) in paragraph at lines 19--20
+[8]
+Overfull \hbox (22.72499pt too wide) in paragraph at lines 65--66
 [][] 
  []
 
-) [6] (../code/output.txt) [7] (./HW4.aux)
+) (../code/implement.m) [9] (./HW4.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 15754 strings out of 476179
- 243610 string characters out of 5813072
- 1211682 words of memory out of 5000000
- 36229 multiletter control sequences out of 15000+600000
+ 15793 strings out of 476179
+ 244700 string characters out of 5813072
+ 1268682 words of memory out of 5000000
+ 36262 multiletter control sequences out of 15000+600000
  482377 words of font info for 86 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 87i,6n,90p,724b,1290s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,8n,90p,724b,1281s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on HW4.pdf (7 pages).
+Output written on HW4.pdf (9 pages).

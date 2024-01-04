@@ -1,12 +1,6 @@
-function plot_trace(points, id, name)
-    % plot the contour of of Rosenbrock function
-    % then plot the trace of the points
-    % points is a matrix of size (n, 2)
-    % each row is a point
-    % the first column is x, the second column is y
-    % the last point is marked with a red star
+function plot_trace(max_iter, points, id, name)
+    points = points(1 : max_iter - 1, :);
 
-    % plot the contour of Rosenbrock function
     x = linspace(-2, 2, 100);
     y = linspace(-1, 3, 100);
     [X, Y] = meshgrid(x, y);
